@@ -1,0 +1,34 @@
+---
+title: 'Invite to Workspace'
+api: 'POST /workspaces/invitations'
+description: 'Invite a user to a workspace'
+---
+
+### Body
+
+<ParamField body="workspace_id" type="string" required>
+  This is the ID of the user group.
+</ParamField>
+
+<ParamField body="inviter_id" type="string" required>
+  who is inviting the user
+</ParamField>
+
+<ParamField body="invitees" type="array" required>
+  Emails of the users to invite.
+<Expandable title="Toggle object">
+
+<ResponseField name="email" type="string" required>
+  This is the ID of the user group.
+</ResponseField>
+
+</Expandable>
+</ParamField>
+
+<ResponseExample>
+
+```json Response
+{}
+```
+
+</ResponseExample>

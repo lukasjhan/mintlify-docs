@@ -1,0 +1,35 @@
+---
+title: 'Create Workspace'
+api: 'POST /workspaces'
+description: 'Create a new workspace'
+---
+
+### Body
+
+<ParamField body="name" type="string" required>
+  This is the name of the workspace you want to create.
+</ParamField>
+
+<ParamField body="owner_id" type="string" required>
+  This is the ID you use to identify this user group in your database.
+</ParamField>
+
+<ResponseExample>
+
+```json 201: Created
+{
+  "workspace_id": "wid-f614c439-fee9-406a-a490-c2bfca814b12",
+  "project_id": "dccc65c902eb168805b316e4a1c42e62",
+  "name": "Test Workspace",
+  "invitation_url": "http://localhost:3000/invite?project_id=dccc65c902eb168805b316e4a1c42e62&workspace_id=wid-f614c439-fee9-406a-a490-c2bfca814b12",
+  "logo_url": "http://res.cloudinary.com/dsllzosoi/image/upload/v1677472329/yagayqz3u4zdsiqspsk3.png",
+  "owner_id": "76c6113c-9919-4bb0-9d12-58c118a571e6",
+  "owner_email": "user1@furo.one",
+  "created_at": "2023-03-15T04:33:13.949Z",
+  "modified_at": "2023-03-15T04:33:13.949Z",
+  "allowed_domains": [],
+  "total_member_count": 1
+}
+```
+
+</ResponseExample>

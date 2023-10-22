@@ -1,0 +1,15 @@
+---
+title: 'Apple'
+api: 'GET /oauth/apple'
+description: 'Start Apple OAuth flow'
+---
+
+<ResponseExample>
+
+```json 301: Moved Permanently
+{
+  "Location": "https://appleid.apple.com/auth/authorize?response_type=code%20id_token&client_id=one.furo.auth.dev&redirect_uri=https://dev.api.furo.one/oauth/apple/callback/4c6551cef3f5bfe41be8332d457cc607&state=85bb3d6596&scope=name%20email&response_mode=form_post"
+}
+```
+
+</ResponseExample>

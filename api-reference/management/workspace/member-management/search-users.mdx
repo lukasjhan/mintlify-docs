@@ -1,0 +1,108 @@
+---
+title: "Search Workspace's Members"
+api: 'GET /workspaces/{workspace_id}/users?status=accepted'
+description: "Search workspace's members"
+---
+
+### Path
+
+<ParamField path="workspace_id" type="string" required>
+  Workspace ID
+</ParamField>
+
+### Query
+
+<ParamField query="status" type="string" required>
+  accepted or pending
+</ParamField>
+
+<ResponseExample>
+
+```json 201: Created
+{
+  "total": 2,
+  "count": 2,
+  "result": [
+    {
+      "uid": "64fa9ec3-44cd-40da-9133-bdd1d757bb6b",
+      "project_id": "dccc65c902eb168805b316e4a1c42e62",
+      "email": "edward@hopae.io",
+      "profile_url": "https://lh3.googleusercontent.com/a/AGNmyxaK9hX4NYf0PVEW2CigJzkrUzeD3jPY8b87YqEc=s96-c",
+      "preferred_username": "Edward Choi",
+      "thumbnail_url": "",
+      "name": {
+        "given_name": "Edward",
+        "family_name": "Choi",
+        "formatted": "Edward Choi"
+      },
+      "display_name": "Edward Choi",
+      "about_me": "",
+      "current_location": "",
+      "social": "google",
+      "sign_in_methods": {
+        "google": {
+          "enabled": true
+        }
+      },
+      "verified": {
+        "email": true
+      },
+      "address": "0xFE3ca2cB4c8d0A182E1668c04150EB4320Bade62",
+      "wallet": {
+        "address": "0xFE3ca2cB4c8d0A182E1668c04150EB4320Bade62",
+        "type": "furo"
+      },
+      "created_at": "2023-03-14T02:15:09.356Z",
+      "modified_at": "2023-03-22T03:18:37.716Z",
+      "photos": [],
+      "urls": [],
+      "last_sign_in_at": "2023-03-22T03:18:37.716Z",
+      "agreed_terms": {
+        "sign_up": "2023-03-14T02:15:13.222Z",
+        "tos": "2023-03-14T02:15:13.222Z"
+      }
+    },
+    {
+      "uid": "76c6113c-9919-4bb0-9d12-58c118a571e6",
+      "project_id": "dccc65c902eb168805b316e4a1c42e62",
+      "email": "user1@furo.one",
+      "profile_url": "",
+      "preferred_username": "",
+      "thumbnail_url": "",
+      "name": {
+        "given_name": "",
+        "family_name": "",
+        "formatted": ""
+      },
+      "display_name": "Edward",
+      "about_me": "",
+      "current_location": "",
+      "sign_in_methods": {
+        "idpw": {
+          "enabled": true
+        }
+      },
+      "verified": {
+        "email": false,
+        "sms": false
+      },
+      "address": "0x137d441fce2FF79Fe97e14dCB02998Ab1AF5ddE4",
+      "wallet": {
+        "address": "0x137d441fce2FF79Fe97e14dCB02998Ab1AF5ddE4",
+        "type": "furo"
+      },
+      "created_at": "2023-03-14T01:58:28.730Z",
+      "modified_at": "2023-03-15T09:54:15.944Z",
+      "photos": [],
+      "urls": [],
+      "last_sign_in_at": "2023-03-15T09:52:12.403Z",
+      "agreed_terms": {
+        "tos": "2023-03-14T01:58:33.313Z",
+        "sign_up": "2023-03-14T01:58:33.313Z"
+      }
+    }
+  ]
+}
+```
+
+</ResponseExample>

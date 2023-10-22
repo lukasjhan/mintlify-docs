@@ -1,0 +1,40 @@
+---
+title: 'Add Member to Workspace'
+api: 'POST /workspaces/{workspace_id}/users'
+description: 'Add member to a workspace'
+---
+
+### Path
+
+<ParamField path="workspace_id" type="string" required>
+  This is the ID of the user group.
+</ParamField>
+
+### Body
+
+<ParamField body="user_id" type="string" required>
+  This is the ID of the user.
+</ParamField>
+
+<ParamField body="role" type="string" required>
+  member or admin
+</ParamField>
+
+<ResponseExample>
+
+```json 201: Created
+{
+  "member_id": "mid-78eb8e13-e5ee-49ba-b9f1-cfc814246cea",
+  "workspace_id": "wid-af604fdc-437c-4917-b962-b5677c6ccdf8",
+  "email": "edward@hopae.io",
+  "inviter_id": "76c6113c-9919-4bb0-9d12-58c118a571e6",
+  "inviter_email": "user1@furo.one",
+  "status": "accepted",
+  "role": "member",
+  "created_at": "2023-03-23T09:48:55.181Z",
+  "modified_at": "2023-03-23T09:48:55.181Z",
+  "user_id": "64fa9ec3-44cd-40da-9133-bdd1d757bb6b"
+}
+```
+
+</ResponseExample>

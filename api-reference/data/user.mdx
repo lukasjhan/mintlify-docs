@@ -1,0 +1,71 @@
+---
+title: 'User'
+description: 'User Data Type'
+---
+
+## Example
+
+```json
+{
+  "uid": "68a2a2fd-b8e7-49a8-a4d0-9c468216e3a9",
+  "project_id": "4c6551cef3f5bfe41be8332d457cc607",
+  "email": "delete@furo.one",
+  "profile_url": "",
+  "preferred_username": "",
+  "thumbnail_url": "",
+  "name": {
+    "given_name": "",
+    "family_name": "",
+    "formatted": ""
+  },
+  "display_name": "",
+  "about_me": "",
+  "current_location": "",
+  "sign_in_methods": {
+    "idpw": {
+      "enabled": true
+    }
+  },
+  "verified": {
+    "email": false
+  },
+  "wallet": {
+    "address": "0xC10e959AB4351fA02079a1740a8683b12483558D",
+    "type": "furo"
+  },
+  "created_at": "2022-11-17T01:56:32.167Z",
+  "modified_at": "2022-11-17T01:56:32.167Z",
+  "photos": [],
+  "urls": [],
+  "privacy": {}
+}
+```
+
+## Properties
+
+| Property           | Type      | Description                                   |
+| ------------------ | --------- | --------------------------------------------- |
+| uid                | `string`  | Unique identifier of the user.                |
+| project_id         | `string`  | Unique identifier of the project.             |
+| email              | `string`  | Email address of the user.                    |
+| profile_url        | `string`  | URL of the user's profile page.               |
+| preferred_username | `string`  | Preferred username of the user.               |
+| thumbnail_url      | `string`  | URL of the user's thumbnail image.            |
+| name               | `object`  | Name of the user.                             |
+| name.given_name    | `string`  | Given name of the user.                       |
+| name.family_name   | `string`  | Family name of the user.                      |
+| name.formatted     | `string`  | Formatted name of the user.                   |
+| display_name       | `string`  | Display name of the user.                     |
+| about_me           | `string`  | About me of the user.                         |
+| current_location   | `string`  | Current location of the user.                 |
+| sign_in_methods    | `object`  | Sign-in methods of the user.                  |
+| verified           | `object`  | Verified information of the user.             |
+| verified.email     | `boolean` | Whether the user's email address is verified. |
+| wallet             | `object`  | Wallet information of the user.               |
+| wallet.address     | `string`  | Wallet address of the user.                   |
+| wallet.type        | `string`  | Wallet type of the user.                      |
+| created_at         | `string`  | Timestamp when the user was created.          |
+| modified_at        | `string`  | Timestamp when the user was last modified.    |
+| photos             | `array`   | Photos of the user.                           |
+| urls               | `array`   | URLs of the user.                             |
+| privacy            | `object`  | Privacy settings of the user.                 |

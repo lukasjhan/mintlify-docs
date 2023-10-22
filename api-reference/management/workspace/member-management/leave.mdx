@@ -1,0 +1,23 @@
+---
+title: 'Leave User to Workspace'
+api: 'POST /workspaces/leave'
+description: 'Leave a user to a workspace'
+---
+
+### Body
+
+<ParamField body="workspace_id" type="string" required>
+  This is the ID of the user group.
+</ParamField>
+
+<ParamField body="user_id" type="string" required>
+  This is the ID of the user.
+</ParamField>
+
+<ResponseExample>
+
+```json 201: Created
+{}
+```
+
+</ResponseExample>

@@ -1,0 +1,52 @@
+---
+title: 'Delete User'
+api: 'DELETE /users/{uid}'
+description: 'Delete a user from your organization.'
+---
+
+### Path
+
+<ParamField path="uid" type="string" required>
+  The user's unique identifier.
+</ParamField>
+
+<ResponseExample>
+
+```json 200: OK
+{
+  "uid": "68a2a2fd-b8e7-49a8-a4d0-9c468216e3a9",
+  "project_id": "4c6551cef3f5bfe41be8332d457cc607",
+  "email": "delete@furo.one",
+  "profile_url": "",
+  "preferred_username": "",
+  "thumbnail_url": "",
+  "name": {
+    "given_name": "",
+    "family_name": "",
+    "formatted": ""
+  },
+  "display_name": "",
+  "about_me": "",
+  "current_location": "",
+  "sign_in_methods": {
+    "idpw": {
+      "enabled": true
+    }
+  },
+  "verified": {
+    "email": false
+  },
+  "wallet": {
+    "address": "0xC10e959AB4351fA02079a1740a8683b12483558D",
+    "type": "furo"
+  },
+  "created_at": "2022-11-17T01:56:32.167Z",
+  "modified_at": "2022-11-17T01:56:32.167Z",
+  "deleted_at": "2022-11-17T02:56:32.167Z",
+  "photos": [],
+  "urls": [],
+  "privacy": {}
+}
+```
+
+</ResponseExample>

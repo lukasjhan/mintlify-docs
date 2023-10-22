@@ -1,0 +1,42 @@
+---
+title: 'Search Joined Workspaces'
+api: 'GET /workspaces/joined/search'
+description: 'Search for workspaces that you have been joined'
+authMethod: 'bearer'
+---
+
+<ResponseExample>
+
+```json Response
+[
+  {
+    "workspace_id": "wid-ad70ab4c-0e20-4194-9d40-6bed719d367a",
+    "project_id": "dccc65c902eb168805b316e4a1c42e62",
+    "name": "Edward's Workspace",
+    "invitation_url": "http://localhost:3000/invite?project_id=dccc65c902eb168805b316e4a1c42e62&workspace_id=wid-ad70ab4c-0e20-4194-9d40-6bed719d367a",
+    "logo_url": "http://res.cloudinary.com/dsllzosoi/image/upload/v1677472329/yagayqz3u4zdsiqspsk3.png",
+    "owner_id": "76c6113c-9919-4bb0-9d12-58c118a571e6",
+    "owner_email": "user1@furo.one",
+    "created_at": "2023-03-14T02:11:38.539Z",
+    "modified_at": "2023-03-14T02:11:38.539Z",
+    "allowed_domains": [],
+    "total_member_count": 4
+  },
+  {
+    "workspace_id": "wid-f614c439-fee9-406a-a490-c2bfca814b12",
+    "project_id": "dccc65c902eb168805b316e4a1c42e62",
+    "name": "Updated Workspace",
+    "invitation_url": "http://localhost:3000/invite?project_id=dccc65c902eb168805b316e4a1c42e62&workspace_id=wid-f614c439-fee9-406a-a490-c2bfca814b12",
+    "logo_url": "http://res.cloudinary.com/dsllzosoi/image/upload/v1678698294/qbisqeixn82z1hngmo2e.webp",
+    "owner_id": "76c6113c-9919-4bb0-9d12-58c118a571e6",
+    "owner_email": "user1@furo.one",
+    "created_at": "2023-03-15T04:33:13.949Z",
+    "modified_at": "2023-03-15T05:01:57.248Z",
+    "allowed_domains": ["furo.one", "hopae.io"],
+    "description": "This is updated workspace",
+    "total_member_count": 2
+  }
+]
+```
+
+</ResponseExample>

@@ -1,0 +1,15 @@
+---
+title: 'Kakao'
+api: 'GET /oauth/kakao'
+description: 'Start Kakao OAuth flow'
+---
+
+<ResponseExample>
+
+```json 301: Moved Permanently
+{
+  "Location": "https://kauth.kakao.com/oauth/authorize?client_id=<KAKAO_REST_API_KEY>&redirect_uri=http%3A%2F%2Flocalhost%3A4000%2Foauth%2Fcallback%2Fdccc65c902eb168805b316e4a1c42e62&access_type=offline&response_type=code&state=kakao"
+}
+```
+
+</ResponseExample>

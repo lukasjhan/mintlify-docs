@@ -1,22 +1,24 @@
 ---
-title: "Authentication"
-description: "Example overview page before API endpoints"
+title: 'Authentication'
+description: 'Overview page before API endpoints'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et eros iaculis tortor dapibus cursus. Curabitur quis sapien nec tortor dictum gravida.
+## Base URL
 
-```bash
-'Authorization': 'Token <team_token>'
-```
+인증 API는 HTTPS를 통해 제공됩니다.
 
-## API Tokens
+<Note>문서의모든 URL의 기본은 https://api.furo.one 입니다.</Note>
 
-Nullam convallis mauris at nunc consectetur, ac imperdiet leo rutrum. Maecenas cursus purus a pellentesque blandit. Pellentesque vitae lacinia libero, non mollis metus.
+## Authentication
 
-Nam id ullamcorper urna, at rutrum enim. [Maecenas vulputate](/introduction) vehicula libero, vitae sodales augue pretium nec. Quisque a magna tempor, semper risus vel, fermentum nunc. Pellentesque fermentum interdum ex, eu convallis massa blandit sed. Aliquam bibendum ipsum vel laoreet auctor.
+인증 API를 사용하면 Furo를 사용할 때 사용자 ID의 모든 측면을 관리할 수 있습니다. 사용자가 로그인, 가입, API 액세스 등을 할 수 있도록 엔드포인트를 제공합니다.
+API의 인가는 기본적으로 **Basic Auth** 방식으로 합니다. **JWT Bearer** 방식의 인증을 사용하는 API도 있습니다. 이런 API들에는 HTTP header 별도의 안내가 적혀있습니다.
 
-### Permissions
+## API Key
 
-Etiam lobortis ut odio ut fermentum. Nunc odio velit, sollicitudin at consectetur id, tristique eget turpis. Aliquam at risus vitae dolor sodales venenatis. In hac habitasse platea dictumst.
+| Key             | 사용하는 API   | 공개 가능 여부 |
+| --------------- | -------------- | -------------- |
+| Public API Key  | Auth API       | O              |
+| Private API Key | Management API | X              |
 
-Aenean consequat diam eget mollis fermentum. [Quisque eu malesuada](/introduction) felis, non dignissim libero.
+Client ID와 Public API Key/Admin API Key는 Furo Console의 개발자 도구 탭에서 확인하실 수 있습니다.

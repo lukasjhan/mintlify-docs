@@ -1,0 +1,30 @@
+---
+title: 'Delete Workspace'
+api: 'DELETE /workspaces/{workspace_id}'
+description: 'Deletes a workspace'
+---
+
+### Path
+
+<ParamField path="workspace_id" type="string" required>
+  This is the ID of the workspace you want to get.
+</ParamField>
+
+<ResponseExample>
+
+```json Response
+{
+  "workspace_id": "workspace-id-9dd5130c-7fd2-44fd-a20f-3da3f5c158ea",
+  "project_id": "dccc65c902eb168805b316e4a1c42e62",
+  "name": "Sample Workspace",
+  "invitation_url": "http://localhost:3000/invite?workspace_id=workspace-id-9dd5130c-7fd2-44fd-a20f-3da3f5c158ea",
+  "owner_id": "3b55ace2-e85d-4c64-91f2-8fd8bf2c7664",
+  "total_member_count": 1,
+  "created_at": "2023-03-07T06:05:59.753Z",
+  "modified_at": "2023-03-07T06:25:52.281Z",
+  "allowed_domain": [],
+  "deleted_at": "2023-03-07T06:26:24.672Z"
+}
+```
+
+</ResponseExample>

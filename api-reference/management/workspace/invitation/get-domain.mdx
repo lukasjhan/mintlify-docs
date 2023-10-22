@@ -1,0 +1,24 @@
+---
+title: 'Check Workspace Domain'
+api: 'GET /workspaces/{workspace_id}/allowed_domains/check'
+description: 'Check if a domain is allowed in a workspace'
+authMethod: 'bearer'
+---
+
+### Path
+
+<ParamField path="workspace_id" type="string" required>
+  This is the ID of the user group.
+</ParamField>
+
+<ResponseExample>
+
+```json If domain matched
+true
+```
+
+```json If domain not matched
+false
+```
+
+</ResponseExample>

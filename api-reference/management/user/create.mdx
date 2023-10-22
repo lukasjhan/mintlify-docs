@@ -1,0 +1,45 @@
+---
+title: 'Create User'
+api: 'POST /users'
+description: 'This endpoint gets or creates a new user.'
+---
+
+### Body
+
+<ParamField body="email" type="string" required>
+  This is the email address of the user you want to create or get.
+</ParamField>
+
+<ResponseExample>
+
+```json 201: Created
+{
+  "uid": "2b8d3ab2-c4e9-4f47-a44f-fad0f035e4af",
+  "project_id": "4c6551cef3f5bfe41be8332d457cc607",
+  "email": "test10@furo.com",
+  "profile_url": "",
+  "preferred_username": "",
+  "thumbnail_url": "",
+  "name": {
+    "given_name": "",
+    "family_name": "",
+    "formatted": ""
+  },
+  "display_name": "",
+  "about_me": "",
+  "current_location": "",
+  "verified": {
+    "email": false
+  },
+  "wallet": {
+    "address": "0xbE03ecCbf523f67D3A2A1a6105da623D7071473c",
+    "type": "furo"
+  },
+  "created_at": "2022-11-17T01:56:16.976Z",
+  "modified_at": "2022-11-17T01:56:16.976Z",
+  "photos": [],
+  "urls": []
+}
+```
+
+</ResponseExample>

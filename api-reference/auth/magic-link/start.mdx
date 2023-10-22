@@ -1,0 +1,31 @@
+---
+title: 'Login'
+api: 'POST /magic_links/email/login_or_create'
+description: 'Start magic link login flow'
+---
+
+### Body
+
+<ParamField body="email" type="string" required>
+  This is the email of the user.
+</ParamField>
+
+<ResponseExample>
+
+```json OTP enabled
+{
+  "message": "success",
+  "requestId": "request-id-e55a5078-b5ab-41f0-b0cf-8b4441da22cd",
+  "authentication_method": "magic_link"
+}
+```
+
+```json OTP disabled
+{
+  "message": "success",
+  "requestId": "request-id-73af84ba-5803-44c5-bba6-07ed72dee4da",
+  "authentication_method": "otp"
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,26 @@
+---
+title: 'Revoke Workspace invitation'
+api: 'DELETE /workspaces/invitations'
+description: 'Revoke a user invitation to a workspace'
+---
+
+### Query
+
+<ParamField query="workspace_id" type="string" required>
+  This is the id of the user group.
+</ParamField>
+
+<ParamField query="email" type="string" required>
+  This is the email of the user to revoke the invitation for.
+</ParamField>
+
+<ResponseExample>
+
+```json Response
+{
+  "acknowledged": true,
+  "deletedCount": 1
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,40 @@
+---
+title: 'Workspace'
+description: 'Workspace Data Type'
+---
+
+## Example
+
+```json
+{
+  "workspace_id": "wid-f614c439-fee9-406a-a490-c2bfca814b12",
+  "project_id": "dccc65c902eb168805b316e4a1c42e62",
+  "name": "Updated Workspace",
+  "invitation_url": "http://localhost:3000/invite?project_id=dccc65c902eb168805b316e4a1c42e62&workspace_id=wid-f614c439-fee9-406a-a490-c2bfca814b12",
+  "logo_url": "http://res.cloudinary.com/dsllzosoi/image/upload/v1678698294/qbisqeixn82z1hngmo2e.webp",
+  "owner_id": "76c6113c-9919-4bb0-9d12-58c118a571e6",
+  "owner_email": "user1@furo.one",
+  "created_at": "2023-03-15T04:33:13.949Z",
+  "modified_at": "2023-03-15T05:01:01.780Z",
+  "allowed_domains": ["furo.one", "hopae.io"],
+  "description": "This is updated workspace",
+  "total_member_count": 2
+}
+```
+
+## Properties
+
+| Property           | Type       | Description                             |
+| ------------------ | ---------- | --------------------------------------- |
+| workspace_id       | `string`   | Unique identifier of the workspace      |
+| project_id         | `string`   | Unique identifier of the project        |
+| name               | `string`   | Name of the workspace                   |
+| invitation_url     | `string`   | Invitation URL of the workspace         |
+| logo_url           | `string`   | Logo URL of the workspace               |
+| owner_id           | `string`   | Unique identifier of the owner          |
+| owner_email        | `string`   | Email of the owner                      |
+| created_at         | `string`   | Creation time of the workspace          |
+| modified_at        | `string`   | Last modification time of the workspace |
+| allowed_domains    | `string[]` | Allowed domains of the workspace        |
+| description        | `string`   | Description of the workspace            |
+| total_member_count | `number`   | Total member count of the workspace     |

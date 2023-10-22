@@ -1,0 +1,26 @@
+---
+title: 'Delete Member'
+api: 'Delete /workspaces/{workspace_id}/users/{user_id}/role'
+description: 'Deletes a member from a workspace.'
+---
+
+### Path
+
+<ParamField body="workspace_id" type="string" required>
+  This is the ID of the workspace.
+</ParamField>
+
+<ParamField body="user_id" type="string" required>
+  This is the ID of the user.
+</ParamField>
+
+<ResponseExample>
+
+```json Response
+{
+  "acknowledged": true,
+  "deletedCount": 1
+}
+```
+
+</ResponseExample>

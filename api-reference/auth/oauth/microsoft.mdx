@@ -1,0 +1,15 @@
+---
+title: 'Microsoft'
+api: 'GET /oauth/microsoft'
+description: 'Start Microsoft OAuth flow'
+---
+
+<ResponseExample>
+
+```json 301: Moved Permanently
+{
+  "Location": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=<client_id>&response_type=code&redirect_uri=https%3A%2F%2Fapi.dev.furo.one%2Foauth%2Fcallback%2F77b6a097f0d911f2236568c40fe79ceb&scope=offline_access+User.Read&response_mode=query&state=microsoft"
+}
+```
+
+</ResponseExample>
