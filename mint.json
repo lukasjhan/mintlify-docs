@@ -42,16 +42,16 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart"]
+      "pages": ["introduction"]
     },
     {
       "group": "Essentials",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
+        "essentials/preview",
+        "essentials/social",
+        "essentials/token",
         "essentials/settings",
-        "essentials/navigation"
+        "essentials/slack"
       ]
     },
     {
