@@ -59,6 +59,14 @@
       "pages": ["sdks/quickstart"]
     },
     {
+      "group": "SDK Guides",
+      "pages": [
+        "sdks/guides/react",
+        "sdks/guides/react-native",
+        "sdks/guides/flutter"
+      ]
+    },
+    {
       "group": "SDKs",
       "pages": [
         {

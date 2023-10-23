@@ -1,0 +1,178 @@
+---
+title: 'React Native Guides'
+description: 'React Native를 사용해 Furo 로그인을 연동하는 방법을 안내합니다.'
+---
+
+## 1. React Native 개발환경 준비하기
+
+https://docs.expo.dev/get-started/installation/
+
+이번 가이드에서는 expo를 이용하여 React Native 개발을 진행하겠습니다.
+
+위 expo 공식 문서에 따라 React Native 개발 환경설정을 진행해주세요. 이미 React Native 개발환경이 설정되신 분은 넘어가셔도 좋습니다.
+
+### 라이브러리 설치 및 사용법
+
+이번 가이드에서 다음의 라이브러리를 추가적으로 사용합니다.
+
+```bash
+npm i @react-navigation/native @react-navigation/native-stack
+npm i axios
+```
+
+```json
+// package.json
+"dependencies": {
+    "@react-navigation/native": "^6.1.7",
+    "@react-navigation/native-stack": "^6.9.13",
+    "axios": "^1.4.0",
+    //...
+}
+```
+
+- **@react-navigation/native, @react-navigation/native-stack**
+
+  로그인 이후 deeplink를 위한 라이브러리 입니다.
+
+- **axios**
+
+  Furo의 authenticate API를 사용하기 위한 라이브러리 입니다.
+
+```js
+//App.js
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+export default function App() {
+  const linking = {
+    prefixes: ['exp://'],
+    config: {
+      screens: {
+        Home: '*',
+      },
+    },
+  };
+  const Stack = createNativeStackNavigator();
+
+  return (
+    <NavigationContainer linking={linking}>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+```
+
+- 추후에 deeplink의 params를 가져오기 위하여 App.js에서 linking config를 추가하고 최상위 컴포넌트에 NavigationContainer와 Stack를 추가합니다.
+
+## 2. Furo 로그인 연동하기
+
+1. App.js 파일의 clientId에 콘솔에서 가져온 Client ID를 넣습니다.
+2. 콘솔 입력창의 Default Callback URI에 기본값 `https://sample.furo.one/{{YOUR_CLIENT_ID}}` 를 `http://localhost:3000/{{YOUR_CLIENT_ID}}` 로 변경합니다.
+
+<Accordion title="redirectUri 와 callbackUri">
+- 로그인 후 사용자를 애플리케이션 내의 특정 페이지로 이동시킬 때 사용하는 속성입니다.
+
+- redirectUri는 애플리케이션 내에서 직접, Default Callback URI는 Furo 콘솔에서 각각 지정할 수 있습니다.
+
+- 앱 내에서 지정한 redirectUri는 통신 중에 악의적으로 조작될 위험이 있기 때문에, Furo 콘솔에서 Default Callback URI에 등록된 URI에 한해서만 redirectUri가 정상 동작합니다.
+
+</Accordion>
+
+## 3. Sample code
+
+```js
+import * as React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Button, Linking } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import axios from 'axios';
+
+const CLIENT_ID = ''; // Insert your furo project's client id
+
+export default function App() {
+  const linking = {
+    prefixes: ['exp://'],
+    config: {
+      screens: {
+        Home: '*',
+      },
+    },
+  };
+  const Stack = createNativeStackNavigator();
+
+  return (
+    <NavigationContainer linking={linking}>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+function HomeScreen({ route }) {
+  const [data, setData] = React.useState();
+
+  React.useEffect(() => {
+    Linking.addEventListener('url', ({ url }) => {
+      const query = url.split('?');
+      if (query.length < 2) return;
+      const [, code] = query[1].split('=');
+      if (code) {
+        (async () => {
+          try {
+            const response = await authenticateWithCode(code);
+            const { access_token } = response;
+            setData(access_token);
+          } catch (e) {
+            console.log('error: ', e.response.data);
+          }
+        })();
+      }
+    });
+  }, []);
+  const loginUrl = `https://auth.furo.one/login/${CLIENT_ID}`;
+
+  const loginWithRedirect = async () => {
+    Linking.openURL(loginUrl);
+  };
+
+  const authenticateWithCode = async (code) => {
+    const { data } = await axios.post(
+      'https://api.furo.one/sessions/code/authenticate',
+      { code },
+      { headers: { origin: 'exp://' } }
+    );
+    return data;
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={{ fontSize: 16, fontWeight: '600' }}>
+        [Furo] React Native Tutorial
+      </Text>
+      <View style={{ marginTop: 10, width: '80%' }}>
+        <Text>{data}</Text>
+      </View>
+      <StatusBar style="auto" />
+      {!data ? (
+        <Button title={'Sign In'} onPress={loginWithRedirect} />
+      ) : (
+        <Button title={'Clear'} onPress={() => setData()} />
+      )}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+```
