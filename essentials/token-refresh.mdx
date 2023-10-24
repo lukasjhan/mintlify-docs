@@ -1,0 +1,51 @@
+---
+title: 'Token Refresh'
+description: 'Refreshes the token of a user'
+---
+
+## Token Refresh 하기
+
+Access Token이 만료된 경우, furo 의 [refresh api](/api-reference/auth/refresh-token)를 사용하여 access token을 refresh 할 수 있습니다.
+
+## Token 만료 확인 하는 방법.
+
+```js
+const payloadBase64 = token.split('.')[1];
+const decodedJson = Buffer.from(payloadBase64, 'base64').toString();
+const decoded = JSON.parse(decodedJson);
+const exp = decoded.exp;
+const expired = Date.now() >= exp * 1000;
+```
+
+## Refresh Token 예제 코드
+
+```js
+const axios = require('axios');
+
+const API_URL = 'https://api.furo.one';
+const refreshToken = 'YOUR_REFRESH_TOKEN';
+const oldAccessToken = 'YOUR_OLD_ACCESS_TOKEN';
+
+async function refreshAccessToken() {
+  try {
+    const response = await axios.post(
+      `${API_URL}/sessions/token/refresh`,
+      {
+        accessToken: oldAccessToken,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${refreshToken}`,
+        },
+      }
+    );
+
+    console.log('Response:', response.data);
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+}
+
+// Call the refreshAccessToken function to make the API call
+refreshAccessToken();
+```

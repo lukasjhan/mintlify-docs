@@ -45,13 +45,42 @@
       "pages": ["introduction"]
     },
     {
-      "group": "Essentials",
+      "group": "Setting Up",
       "pages": [
         "essentials/preview",
-        "essentials/social",
-        "essentials/token",
-        "essentials/settings",
-        "essentials/slack"
+        {
+          "group": "Social Login",
+          "icon": "share-from-square",
+          "pages": [
+            "essentials/social-login/overview",
+            "essentials/social-login/google",
+            "essentials/social-login/kakao",
+            "essentials/social-login/naver",
+            "essentials/social-login/apple",
+            "essentials/social-login/microsoft"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Make it yours",
+      "pages": [
+        "essentials/style",
+        {
+          "group": "Token Management",
+          "icon": "key",
+          "pages": [
+            "essentials/token-verify",
+            "essentials/token-payload",
+            "essentials/token-refresh",
+            "essentials/token-save"
+          ]
+        },
+        {
+          "group": "Hooks",
+          "icon": "gear",
+          "pages": ["essentials/slack"]
+        }
       ]
     },
     {

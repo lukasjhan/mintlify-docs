@@ -1,0 +1,45 @@
+---
+title: 'Token Verify'
+description: '사용자의 토큰을 검증하는 방법을 알아봅니다.'
+---
+
+내 서비스에서 유저에 대한 검증이 필요한 케이스는 상황에 따라 다양하겠지만, 대표적으로 "내 서비스의 백엔드 API 서버에서 내 서비스 유저에게만 API 호출을 허용하고 싶을 때"를 생각해볼 수 있습니다.
+백엔드 API 서버에서는 API를 호출한 주체가 내 서비스의 유저인지 아닌지를 어떻게 알 수 있을까요?
+
+## 검증 순서
+
+1. 내 서비스의 웹 페이지에 들어온 유저들이 로그인을 시도합니다.
+2. 해당 로그인 요청은 Furo로 가게되고 Furo에서는 로그인을 시도하는 유저에 대해 정보가 올바른지 검증하고 이상이 없다면 해당 유저의 정보를 내 프로젝트의 Client Secret 으로 서명해서 만든 JWT를 응답으로 줍니다.
+
+<Info>
+  [Furo 콘솔](https://console.furo.one) 에서 생성한 프로젝트의 [프로젝트 정보]
+  탭에서 Client Secret을 확인하실 수 있습니다.
+</Info>
+
+3. 웹 페이지에서는 Furo로부터 응답으로 받은 JWT를 넣고 백엔드 API 서버를 호출합니다.
+   (대부분 header에 Authorization에 JWT를 넣습니다.)
+4. 백엔드 API 서버에서는 JWT가 내 프로젝트의 Client Secret 으로 서명된 게 맞는지 검증하고, 이상이 없다면 클라이언트의 요청을 수행 후 클라이언트에게 응답을 줍니다.
+
+## Sample code
+
+```js
+const jwt = require('jsonwebtoken');
+
+// Your secret key (keep this secret!)
+const secretKey = 'your-secret-key';
+
+// An example JWT to verify
+const token = 'your-jwt-token-here';
+
+try {
+  // Verify the JWT
+  const decoded = jwt.verify(token, secretKey);
+
+  // If verification succeeds, 'decoded' will contain the payload data
+  console.log('JWT Verified successfully');
+  console.log('Decoded JWT payload:', decoded);
+} catch (error) {
+  // If verification fails, an error will be thrown
+  console.error('JWT verification failed:', error.message);
+}
+```
