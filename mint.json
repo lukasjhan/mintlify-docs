@@ -110,7 +110,8 @@
             }
           ]
         },
-        "sdks/guides/react-native"
+        "sdks/guides/react-native",
+        "sdks/guides/vue"
       ]
     },
     {
