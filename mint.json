@@ -227,6 +227,22 @@
     {
       "source": "/guides/social-login/microsoft-oauth",
       "destination": "/essentials/social-login/microsoft"
+    },
+    {
+      "source": "/guides/social-login/apple-oauth",
+      "destination": "/essentials/social-login/apple"
+    },
+    {
+      "source": "/guides/social-login/google-oauth",
+      "destination": "/essentials/social-login/google"
+    },
+    {
+      "source": "/guides/social-login/kakao-oauth",
+      "destination": "/essentials/social-login/kakao"
+    },
+    {
+      "source": "/guides/social-login/naver-oauth",
+      "destination": "/essentials/social-login/naver"
     }
   ],
   "modeToggle": {
