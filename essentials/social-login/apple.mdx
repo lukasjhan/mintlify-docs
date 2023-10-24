@@ -2,3 +2,94 @@
 title: 'Apple'
 icon: 'apple'
 ---
+
+Apple OAuth를 활성화하기 위해서는 우선 [Apple Developer](https://developer.apple.com/)에서 애플리케이션을 생성하고, 생성된 애플리케이션의 Client ID, Client Secret, Team ID, Key ID를 Furo Console에 설정해야 합니다.
+
+## 애플리케이션 생성
+
+<img src="/images/ap1.png" alt="apple" />
+
+Apple Developer에 로그인 후 Certificates, Identifiers & Profiles를 클릭합니다. 이 페이지에서 다음과 같은 순서로 애플리케이션을 생성할 것입니다.
+
+<img src="/images/ap2.png" alt="apple" />
+
+## 2. App ID 생성
+
+좌측 메뉴의 Identifiers 선택 후 + 버튼을 눌러 App ID를 생성합니다.
+
+<img src="/images/ap3.webp" alt="apple" />
+
+App ID를 선택해줍니다.
+
+<img src="/images/ap4.png" alt="apple" />
+
+ID를 입력후 하단의 Sign in with Apple을 체크 후 App ID를 생성합니다.
+
+<img src="/images/ap5.png" alt="apple" />
+
+## 3. Service ID 생성
+
+이전에 App ID 생성과 같이 + 버튼을 눌러 Service ID를 생성합니다.
+
+<img src="/images/ap6.webp" alt="apple" />
+
+Service ID를 선택해줍니다.
+
+<img src="/images/ap7.png" alt="apple" />
+
+Identifier를 입력해줍니다.
+
+<img src="/images/ap8.webp" alt="apple" />
+
+그 후 Service ID 설정 화면에서 이전에 만든 App ID를 선택해줍니다.
+또한 Domain과 Return URL을 입력해줍니다. Return URL은 Furo console의 설정에서 찾을 수 있습니다. 자세한 내용은 하단의 Furo Console Setting을 참고해주세요.
+
+<img src="/images/ap9.jpeg" alt="apple" />
+
+Furo Redirect URL을 입력해주면 됩니다.
+
+## 3. 키 생성 및 다운로드
+
+<img src="/images/ap10.png" alt="apple" />
+
+좌측 메뉴에 Keys를 선택 후 +버튼을 눌러 Key를 생성해줍니다.
+
+생성할때 **Sign in with Apple**을 선택하면 됩니다.
+
+생성이 완료되었으면 Download버튼을 눌러 Key 파일을 다운로드 해줍니다. 한번만 다운로드가 가능하니 유의해주세요.
+
+## 4. Furo Console에 필요한 값 입력
+
+### Client ID
+
+<img src="/images/ap11.png" alt="apple" />
+
+Service ID의 Identifier가 Client ID입니다.
+
+### Team ID
+
+<img src="/images/ap12.png" alt="apple" />
+
+화면 오른쪽 상단 이름 옆에 표시되는 값이 Team ID입니다.
+
+### Key ID
+
+<img src="/images/ap13.png" alt="apple" />
+
+생성된 키를 눌러 정보를 확인하면 Key ID가 표시됩니다.
+
+### Client Secret
+
+Key를 다운로드하면 Download폴더에 `AuthKey_{랜덤 문자열}.p8` 파일이 다운로드 됩니다. 이 파일의 내용물이Client Secret입니다. 메모장으로 여셔서 내용물을 복사 후 Furo console에 붙여넣기 해주시면 됩니다.
+
+## Furo Console Setting
+
+Console에 접속하신 후 좌측의 configuration - Login Method를 선택합니다. 다음과 같은 화면을 보실 수 있습니다.
+
+<img src="/images/ap14.jpeg" alt="apple" />
+
+Apple 로그인의 상세페이지 설정으로 들어가 위에서 얻은 값들을 차례대로 입력해주시면 됩니다.
+
+<img src="/images/ap15.jpeg" alt="apple" />
+
+Client ID, Key ID, Team ID, 파일로 다운로드 받았던 Client Secret까지 내용을 입력하신 후 Save 버튼을 눌러 주시면 Apple 로그인을 사용하실 수 있습니다.

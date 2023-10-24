@@ -2,3 +2,90 @@
 title: 'Microsoft'
 icon: 'microsoft'
 ---
+
+Microsoft OAuth를 활성화하기 위해서는 우선 [Azure Portal](https://portal.azure.com/)에서 OAuth Client를 생성하고, 생성된 Client의 ID와 Client Secret을 Furo Console에서 생성한 프로젝트에 설정해야 합니다. 해당 과정은 [Microsoft 공식 Documentation](https://learn.microsoft.com/en-us/graph/auth-register-app-v2)을 참조하였습니다.
+
+## 1. Azure App 등록하기
+
+Azure Portal에 접속합니다. Microsoft Entra ID를 검색 후 선택합니다.
+
+<img src="/images/ms1.png" alt="ms" />
+
+좌측 Manage 메뉴 탭 아래, App registrations를 클릭하시고, 상단 탭의 New registration을 클릭합니다.
+
+<img src="/images/ms3.png" alt="ms" />
+
+Application의 정보를 기입합니다. Application의 name을 설정해주시고, 사용자의 범위에 따라서 Supported Account Type을 골라주세요. Redirect URI 설정방법은 다음 단계에서 진행되니, 지금은 건너뛰어도 됩니다.
+
+<img src="/images/ms4.webp" alt="ms" />
+
+프로젝트 생성 후 완료화면은 다음과 같습니다.
+
+<img src="/images/ms5.png" alt="ms" />
+
+## 2. App Setting 설정하기
+
+### Redirect URI 설정하기
+
+생성한 Azure Application의 좌측 Manage탭의 Authentication탭을 클릭합니다.
+
+<img src="/images/ms6.png" alt="ms" />
+
+Platform configurations 아래의 Add a platform 버튼을 클릭합니다.
+Application platform을 목적에 맞게 설정해줍니다. 해당 예시에서는 Web platform으로 진행하겠습니다.
+
+<img src="/images/ms7.png" alt="ms" />
+
+Redirect URI에 `https://api.furo.one/oauth/callback/<FURO_PROJECT_CLIENT_ID>`를 추가합니다. Redirect URI는 Furo Console의 Microsoft 로그인 설정 창에서 복사 & 붙여넣기 할 수 있습니다.
+
+<img src="/images/ms8.png" alt="ms" />
+
+Implicit grant and hybrid flows 에서 Access tokens를 체크합니다. Configure 버튼을 누릅니다.
+
+<img src="/images/ms9.png" alt="ms" />
+
+### Client Secret 발급받기
+
+생성한 Azure Application의 좌측 Manage탭의 Certificates & secrets탭을 클릭합니다.
+
+<img src="/images/ms10.png" alt="ms" />
+
+New Client Secret 버튼을 클릭 후, Description과 Expires를 설정한 뒤 Add버튼을 눌러줍니다.
+
+<img src="/images/ms11.png" alt="ms" />
+
+발급 후, Value 값을 복사해줍니다. 이 값은 생성시에만 확인 가능하므로, 잘 저장해둡니다. 또한, 이 값을 Furo Console의 Microsoft 로그인 설정 창의 Client Secret값으로 지정해야하므로, 잘 저장해둡니다.
+
+## 3. Furo 프로젝트의 Microsoft 로그인 활성화
+
+Azure App Portal에서 생성한 OAuth Client의 Client ID와 Client Secret을 복사해줍니다.
+
+<img src="/images/ms12.png" alt="ms" />
+
+<img src="/images/ms13.png" alt="ms" />
+
+복사한 Client ID와 Client Secret을 Furo Console의 Microsoft Login Setting에 저장합니다.
+
+<img src="/images/ms14.webp" alt="ms" />
+
+<img src="/images/ms15.webp" alt="ms" />
+
+Microsoft Login을 활성화 해줍니다.
+
+<img src="/images/ms16.png" alt="ms" />
+
+## 4. 로그인 페이지 확인
+
+Furo Console왼쪽 하단의 View site를 누르면 다음과 같이 Microsoft Login이 활성화 된것을 확인할 수 있습니다.
+
+<img src="/images/ms16.png" alt="ms" />
+
+<img src="/images/ms17.png" alt="ms" />
+
+## 5. Microsoft 로그인 버튼 커스터마이징
+
+만약 Microsoft Login 버튼을 커스터마이징하고자 한다면 Furo에서 제공하는 API URL을 커스텀 로그인 버튼에 임베딩하여 사용할 수 있습니다.
+
+<img src="/images/ms18.png" alt="ms" />
+
+직접 만드신 버튼의 onClick() prop에 위 URL로 리다이렉트 하는 메서드를 호출하면 마이크로소프트 로그인 프롬프트로 이동하게 되고, 마이크로소프트 인증이 완료되면 최종적으로 프로젝트에 설정된 Callback URI로 리다이렉트됩니다.

@@ -2,3 +2,74 @@
 title: 'Google'
 icon: 'google'
 ---
+
+Google OAuth를 활성화하기 위해서는 우선 [Google API Console](https://console.cloud.google.com/apis/dashboard)에서 OAuth Client를 생성하고, 생성된 Client의 ID와 Client Secret을 [Furo Console](https://console.furo.one/)에서 생성한 프로젝트에 설정해야 합니다.
+
+## 1. Google Cloud 프로젝트 생성
+
+Google API Console에 접속합니다.
+
+좌측 상단 **New Project** 버튼을 클릭하여 프로젝트를 생성합니다.
+
+<img src="/images/google1.png" alt="google" />
+
+## 2. OAuth consent screen 설정
+
+좌측 메뉴 목록에서 OAuth consent screen 선택합니다.
+
+<img src="/images/google2.png" alt="google" />
+
+User Type을 External로 선택 후 Create 버튼 클릭합니다.
+
+<img src="/images/google3.png" alt="google" />
+
+Authorized domains에 furo.one 을 추가하고 계속 진행합니다.
+
+<img src="/images/google4.webp" alt="google" />
+
+사용자의 구글 계정에서 사용할 정보에 대한 권한을 설정합니다.
+권한은 /auth/userinfo.email과 /auth/userinfo.profile을 포함하도록 설정합니다.
+
+<img src="/images/google5.png" alt="google" />
+
+남은 설정 사항들은 필수는 아니므로 **Save and Close** 버튼을 눌러서 완료합니다.
+
+## 3. Google OAuth Client 생성 및 설정
+
+Credentials 페이지에서 [CREATE CREDENTIALS > OAuth client ID]를 선택합니다.
+
+<img src="/images/google6.png" alt="google" />
+
+필요한 설정 항목 입력하여 OAuth Client 생성합니다. 이 때 Authorized redirect URIs에 `https://api.furo.one/oauth/callback/<FURO_PROJECT_CLIENT_ID>` 를 추가합니다. redirect uri는 Furo Console의 Google 로그인 설정 창에서 복사 & 붙여넣기 할 수 있습니다.
+
+<img src="/images/google7.jpeg" alt="google" />
+
+<img src="/images/google8.jpeg" alt="google" />
+
+<img src="/images/google9.png" alt="google" />
+
+변경사항을 저장합니다.
+
+## 4. 프로젝트의 Google Auth 활성화
+
+Google Credentials page에서 생성한 OAuth Client의 Client ID와 Client Secret을 복사합니다.
+
+<img src="/images/google10.png" alt="google" />
+
+복사한 Client ID를 Furo Console의 Google Client ID, Client Secret 입력란에 입력합니다.
+
+<img src="/images/google11.png" alt="google" />
+
+<img src="/images/google12.jpeg" alt="google" />
+
+여기까지의 설정이 완료되면 해당 프로젝트의 로그인 페이지에 Log in with Google 버튼이 활성화됩니다.
+
+<img src="/images/google13.jpeg" alt="google" />
+
+## 5. Google 로그인 버튼 커스터마이징
+
+만약 Google Login 버튼을 커스터마이징하고자 한다면 Furo에서 제공하는 API URL을 커스텀 로그인 버튼에 임베딩하여 사용할 수 있습니다.
+
+<img src="/images/google14.jpeg" alt="google" />
+
+버튼의 onClick() prop에 위 URL로 리다이렉트 하는 메서드를 호출하면 구글 로그인 프롬프트로 이동하게 되고, 구글 인증이 완료되면 최종적으로 프로젝트에 설정된 Callback URI로 리다이렉트됩니다.

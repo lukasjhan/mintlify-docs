@@ -2,3 +2,53 @@
 title: 'Naver'
 icon: 'n'
 ---
+
+Naver OAuth를 활성화하기 위해서는 우선 [네이버 로그인](https://developers.naver.com/products/login/api/api.md)에서 애플리케이션을 생성하고, 생성된 애플리케이션의 Client ID와 Client Secret을 Furo Console에 설정해야 합니다.
+
+## 1. 네이버 로그인 애플리케이션 추가하기
+
+Naver Developers에 접속합니다. 상단 메뉴 텝에서 Application 버튼을 클릭합니다. Application 목록 우측의 [Application 등록 ] 버튼을 클릭합니다. 애플리케이션 이름을 기재하고 사용 API를 네이버 로그인으로 설정합니다.
+
+<img src="/images/naver1.png" alt="naver" />
+
+제공 정보를 선택합니다. 이 때, 이메일 주소 외 정보를 제공받기 위해서는 애플리케이션을 검수받아야 합니다.
+
+<img src="/images/naver2.webp" alt="naver" />
+
+사용 환경에 PC 웹과 Mobile 웹을 추가합니다.
+
+<img src="/images/naver3.png" alt="naver" />
+
+서비스 URL에 https://api.furo.one 을 추가하고, Callback URL에 `https://api.furo.one/oauth/callback/<FURO_PROJECT_CLIENT_ID>`을 추가한 후 저장합니다.
+
+<img src="/images/naver4.png" alt="naver" />
+
+Callback URL은 Furo Console 네이버 로그인 설정 창의 Furo Redirect URL 항목을 복사하여 사용합니다.
+
+<img src="/images/naver5.jpeg" alt="naver" />
+
+## 2. 프로젝트의 Naver 로그인 활성화
+
+생성이 완료된 프로젝트에서 Client ID와 Client Secret을 확인합니다.
+
+<img src="/images/naver6.png" alt="naver" />
+
+Furo Console의 로그인 방식 탭에서 네이버 로그인 설정 버튼을 클릭합니다.
+
+<img src="/images/naver7.jpeg" alt="naver" />
+
+Client ID와 Client Secret을 입력하고 저장합니다.
+
+<img src="/images/naver8.jpeg" alt="naver" />
+
+## 3. 로그인 페이지 확인
+
+<img src="/images/naver9.png" alt="naver" />
+
+## 4. 로그인 버튼 커스터마이징
+
+만약 Naver Login 버튼을 커스터마이징하고자 한다면 Furo에서 제공하는 API URL을 커스텀 로그인 버튼에 임베딩하여 사용할 수 있습니다.
+
+<img src="/images/naver10.jpeg" alt="naver" />
+
+버튼의 onClick() prop에 위 URL로 리다이렉트 하는 메서드를 호출하면 네이버 로그인 프롬프트로 이동하게 되고, 네이버 인증이 완료되면 최종적으로 프로젝트에 설정된 Callback URI로 리다이렉트됩니다.
