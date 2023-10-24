@@ -223,6 +223,12 @@
       "name": "Clinet ID:API Key"
     }
   },
+  "redirects": [
+    {
+      "source": "/guides/social-login/microsoft-oauth",
+      "destination": "/essentials/social-login/microsoft"
+    }
+  ],
   "modeToggle": {
     "default": "dark"
   }
