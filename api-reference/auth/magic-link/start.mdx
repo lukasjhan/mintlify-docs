@@ -4,6 +4,12 @@ api: 'POST /magic_links/email/login_or_create'
 description: 'Start magic link login flow'
 ---
 
+### Query
+
+<ParamField query="lang" type="string" default="ko">
+  Language of the email. currently we support `ko`, `en` and `ja`.
+</ParamField>
+
 ### Body
 
 <ParamField body="email" type="string" required>
