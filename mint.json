@@ -249,5 +249,8 @@
   ],
   "modeToggle": {
     "default": "dark"
+  },
+  "feedback": {
+    "thumbsRating": true
   }
 }
