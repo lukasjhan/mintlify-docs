@@ -121,7 +121,8 @@
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
+      "pages": ["api-reference/authentication"],
+      "version": "Korean"
     },
     {
       "group": "Auth API",
@@ -155,7 +156,8 @@
         "api-reference/auth/user-auth",
         "api-reference/auth/get-user-info",
         "api-reference/auth/refresh-token"
-      ]
+      ],
+      "version": "Korean"
     },
     {
       "group": "Management API",
@@ -208,11 +210,112 @@
             }
           ]
         }
-      ]
+      ],
+      "version": "Korean"
     },
     {
       "group": "Data Structure",
-      "pages": ["api-reference/data/user", "api-reference/data/workspace"]
+      "pages": ["api-reference/data/user", "api-reference/data/workspace"],
+      "version": "Korean"
+    },
+    {
+      "group": "API Documentation",
+      "pages": ["api-reference/en/authentication"],
+      "version": "English"
+    },
+    {
+      "group": "Auth API",
+      "pages": [
+        {
+          "group": "OAuth",
+          "pages": [
+            "api-reference/auth/oauth/introduction",
+            "api-reference/auth/oauth/google",
+            "api-reference/auth/oauth/kakao",
+            "api-reference/auth/oauth/naver",
+            "api-reference/auth/oauth/apple",
+            "api-reference/auth/oauth/microsoft"
+          ]
+        },
+        {
+          "group": "Magic Link",
+          "pages": [
+            "api-reference/auth/magic-link/start",
+            "api-reference/auth/magic-link/auth"
+          ]
+        },
+        {
+          "group": "Password",
+          "pages": [
+            "api-reference/auth/password/login",
+            "api-reference/auth/password/sign-up",
+            "api-reference/auth/password/reset"
+          ]
+        },
+        "api-reference/auth/user-auth",
+        "api-reference/auth/get-user-info",
+        "api-reference/auth/refresh-token"
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Management API",
+      "pages": [
+        {
+          "group": "User",
+          "pages": [
+            "api-reference/management/user/create",
+            "api-reference/management/user/search",
+            "api-reference/management/user/get",
+            "api-reference/management/user/update",
+            "api-reference/management/user/set-password",
+            "api-reference/management/user/delete"
+          ]
+        },
+        {
+          "group": "Workspace",
+          "pages": [
+            {
+              "group": "Workspace Management",
+              "pages": [
+                "api-reference/management/workspace/workspace-management/create",
+                "api-reference/management/workspace/workspace-management/get",
+                "api-reference/management/workspace/workspace-management/update",
+                "api-reference/management/workspace/workspace-management/delete"
+              ]
+            },
+            {
+              "group": "Member Management",
+              "pages": [
+                "api-reference/management/workspace/member-management/join",
+                "api-reference/management/workspace/member-management/leave",
+                "api-reference/management/workspace/member-management/add-member",
+                "api-reference/management/workspace/member-management/search-workspaces",
+                "api-reference/management/workspace/member-management/search-users",
+                "api-reference/management/workspace/member-management/search-invited",
+                "api-reference/management/workspace/member-management/search-joined",
+                "api-reference/management/workspace/member-management/update-role",
+                "api-reference/management/workspace/member-management/remove-member"
+              ]
+            },
+            {
+              "group": "Invitation Management",
+              "pages": [
+                "api-reference/management/workspace/invitation/invite",
+                "api-reference/management/workspace/invitation/get-domain",
+                "api-reference/management/workspace/invitation/update-domain",
+                "api-reference/management/workspace/invitation/revoke"
+              ]
+            }
+          ]
+        }
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Data Structure",
+      "pages": ["api-reference/data/user", "api-reference/data/workspace"],
+      "version": "English"
     }
   ],
   "footerSocials": {
@@ -252,5 +355,6 @@
   },
   "feedback": {
     "thumbsRating": true
-  }
+  },
+  "versions": ["Korean", "English"]
 }
