@@ -1,0 +1,47 @@
+---
+title: 'Vue Guides'
+description: 'Guidance on integrating Furo login using Vue.'
+icon: 'vuejs'
+---
+
+## 1. Download the Git Repository
+
+Download the [Furo Vue Sample](https://github.com/lukasjhan/furo-sample-vue) project.
+
+```bash
+git clone https://github.com/lukasjhan/furo-sample-vue
+```
+
+Next, install the npm packages.
+
+```bash
+cd furo-sample-vue
+
+yarn install
+```
+
+## 2. Project Configuration
+
+Go to the [Configuration > For Developers] tab in the [Furo Console](https://console.furo.one) and perform the following two tasks:
+
+1. Insert your Furo project's Client ID in the clientId field of the App.js file.
+2. Change the Default Callback URI in the console's input box from the default value `https://sample.furo.one/{{YOUR_CLIENT_ID}}` to `http://localhost:8080/{{YOUR_CLIENT_ID}}`.
+
+<Accordion title="redirectUri and callbackUri">
+- These are properties used when redirecting the user to a specific page within the application after login.
+
+- You can specify redirectUri within the app, and Default Callback URI can be set in the Furo Console.
+
+- The redirectUri specified within the app is subject to potential malicious manipulation during communication. Therefore, the redirectUri will work correctly only for URIs registered in the Default Callback URI in the Furo Console.
+
+</Accordion>
+
+## 3. Run the Project
+
+Return to the terminal and enter the following command:
+
+```bash
+yarn serve
+```
+
+You can test the integrated login functionality provided by Furo by going to http://localhost:8080.

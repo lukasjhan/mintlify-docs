@@ -1,0 +1,223 @@
+---
+title: 'Flutter Guides'
+description: 'Guidance on integrating Furo login using Flutter.'
+icon: 'google'
+---
+
+## 1. Set Up Flutter Development Environment
+
+Follow the instructions on the [official Flutter documentation](https://docs.flutter.dev/get-started/install) to set up your Flutter development environment. If you already have Flutter set up, you can skip this step.
+
+### Download the Git Repository
+
+If you want to use the sample project, download the Git repository with the following command:
+
+Download the [Furo Flutter Sample](https://github.com/lukasjhan/furo-sample-flutter) project.
+
+```bash
+git clone https://github.com/lukasjhan/furo-sample-flutter
+```
+
+If you want to create your project from scratch, follow the guide below.
+
+### Install and Use the web_auth Library
+
+In this guide, we will use the [flutter_web_auth](https://pub.dev/documentation/flutter_web_auth/latest/) library. Please refer to the link for information about the library.
+
+- Installation
+
+Add the library to the dependencies section in the pubspec.yaml file. Here's an example:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_web_auth: ^0.5.0
+  http: ^0.13.6
+```
+
+- Usage
+
+```dart
+import 'package:flutter_web_auth/flutter_web_auth.dart';
+
+final result = await FlutterWebAuth.authenticate(
+        url: loginUrl,
+        callbackUrlScheme: scheme
+);
+
+final code = Uri.parse(result).queryParameters['code'];
+print(code);
+```
+
+| Parameter Name    | Description                                                                                                                   | Type   |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------ |
+| url               | URL of the login page                                                                                                         | string |
+| callbackUrlScheme | URI scheme (deep link) to receive the callback after authentication: web: http/https, mobile: {app.scheme} [e.g., youtube://] | string |
+
+<Warning>
+  The "callbackUrlScheme" must be a valid scheme string. A valid RFC 3986 URL
+  scheme should start with a letter and consist of letters, numbers, plus sign
+  ("+"), period (".") or hyphen ("-").
+</Warning>
+
+### Sample code
+
+<Accordion title="lib/main.dart">
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_web_auth/flutter_web_auth.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  String _counter = 'Hello Furo!';
+  final String _defaultMsg = 'Set Up Your Client ID';
+
+  Future<void> _login() async {
+    const clientId = 'cc56fd283a912ac9fed43029e251e7ba';
+    if (clientId == _defaultMsg) {
+      setState(() {
+        _counter = _defaultMsg;
+      });
+      return;
+    }
+
+    const mode = 'web'; // web or mobile
+    const port = '45273';
+    const redirectUri = mode == 'web'
+        ? 'http://localhost:$port/auth.html'
+        : 'login.test.furo://auth';
+    const loginUrl =
+        'https://auth.furo.one/login/$clientId?redirect_uri=$redirectUri';
+
+    const scheme = mode == 'web' ? 'http' : 'login.test.furo';
+    final result = await FlutterWebAuth.authenticate(
+        url: loginUrl, callbackUrlScheme: scheme);
+    print(result);
+    final code = Uri.parse(result).queryParameters['code'];
+    if (code == null) {
+      return;
+    }
+    print(code);
+    var response = await http.post(
+      Uri.parse('https://api.furo.one/sessions/code/authenticate'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode(<String, String>{
+        'code': code,
+      }),
+    );
+    print(response.body);
+    setState(() {
+      _counter = response.body;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'Click the button to login to Furo',
+            ),
+            Text(
+              _counter,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _login,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+```
+
+</Accordion>
+
+## 2. Integrate Furo Login
+
+1. Insert your Furo project's Client ID in the clientId field of the App.js file.
+2. Change the Default Callback URI in the console's input box from the default value `https://sample.furo.one/{{YOUR_CLIENT_ID}}` to `http://localhost:3000/{{YOUR_CLIENT_ID}}`.
+
+<Accordion title="redirectUri and callbackUri">
+- These are properties used when redirecting the user to a specific page within the application after login.
+
+- You can specify redirectUri within the app, and Default Callback URI can be set in the Furo Console.
+
+- The redirectUri specified within the app is subject to potential malicious manipulation during communication. Therefore, the redirectUri will work correctly only for URIs registered in the Default Callback URI in the Furo Console.
+
+</Accordion>
+
+### Web
+
+Change the Default Callback URI in the console's input box from the default value `https://sample.furo.one/{{YOUR_CLIENT_ID}}` to `http://localhost:{port}/auth.html`.
+
+Add an auth.html file under the web directory of your project.
+
+```html
+<!DOCTYPE html>
+<title>Authentication complete</title>
+<p>
+  Authentication is complete. If this does not happen automatically, please
+  close the window.
+  <script>
+    console.log(window.location.href);
+    window.opener.postMessage(
+      {
+        'flutter-web-auth': window.location.href,
+      },
+      window.location.origin
+    );
+    window close();
+  </script>
+</p>
+```
+
+After starting the project, click the login button to log in to Furo.
+
+### Android
+
+Change the Default Callback URI in the console's input box from the

@@ -94,7 +94,8 @@
     },
     {
       "group": "SDK Documentation",
-      "pages": ["sdks/overview"]
+      "pages": ["sdks/overview"],
+      "version": "Korean"
     },
     {
       "group": "Javascript/Typescript",
@@ -113,11 +114,43 @@
         "sdks/guides/next",
         "sdks/guides/react-native",
         "sdks/guides/vue"
-      ]
+      ],
+      "version": "Korean"
     },
     {
       "group": "Dart/Flutter",
-      "pages": ["sdks/guides/flutter"]
+      "pages": ["sdks/guides/flutter"],
+      "version": "Korean"
+    },
+    {
+      "group": "SDK Documentation",
+      "pages": ["sdks/en/overview"],
+      "version": "English"
+    },
+    {
+      "group": "Javascript/Typescript",
+      "pages": [
+        {
+          "group": "React",
+          "icon": "react",
+          "pages": [
+            "sdks/en/guides/react",
+            {
+              "group": "SDK",
+              "pages": ["sdks/en/react/furoProvider", "sdks/en/react/useFuro"]
+            }
+          ]
+        },
+        "sdks/en/guides/next",
+        "sdks/en/guides/react-native",
+        "sdks/en/guides/vue"
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Dart/Flutter",
+      "pages": ["sdks/en/guides/flutter"],
+      "version": "English"
     },
     {
       "group": "API Documentation",
