@@ -1,0 +1,51 @@
+---
+title: 'How to Refresh JWT'
+description: 'Refreshes the token of a user'
+---
+
+## Refreshing Tokens
+
+If the Access Token has expired, you can use Furo's [token refresh API](/api-reference/auth/refresh-token) to refresh the Access Token.
+
+## How to Check Token Expiry
+
+```js
+const payloadBase64 = token.split('.')[1];
+const decodedJson = Buffer.from(payloadBase64, 'base64').toString();
+const decoded = JSON.parse(decodedJson);
+const exp = decoded.exp;
+const expired = Date.now() >= exp * 1000;
+```
+
+## Example Code for Refreshing Tokens
+
+```js
+const axios = require('axios');
+
+const API_URL = 'https://api.furo.one';
+const refreshToken = 'YOUR_REFRESH_TOKEN';
+const oldAccessToken = 'YOUR_OLD_ACCESS_TOKEN';
+
+async function refreshAccessToken() {
+  try {
+    const response = await axios.post(
+      `${API_URL}/sessions/token/refresh`,
+      {
+        accessToken: oldAccessToken,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${refreshToken}`,
+        },
+      }
+    );
+
+    console.log('Response:', response.data);
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+}
+
+// Call the refreshAccessToken function to make the API call
+refreshAccessToken();
+```

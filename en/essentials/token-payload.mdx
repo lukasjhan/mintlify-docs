@@ -1,0 +1,34 @@
+---
+title: "What's in the JWT Payload"
+description: 'Explains the structure of token data.'
+---
+
+## Token Payloads
+
+### AccessToken Payload
+
+```json
+{
+  "uid": "2acc2f34-c116-4328-83a3-53ce9c92160b",
+  "pid": "4c6551cef3f5bfe41be8332d457cc607",
+  "uem": "dev@hopae.io",
+  "iat": 1697086176,
+  "exp": 1697089776
+}
+```
+
+<Warning>
+  Retrieving user information by decoding the JWT token is not secure. In fact,
+  uem is an optional property. Use the Get User Information API to request user
+  information.
+</Warning>
+
+### RefreshToken Payload
+
+```json
+{
+  "sub": "2acc2f34-c116-4328-83a3-53ce9c92160b",
+  "iat": 1697086176,
+  "exp": 1697690976
+}
+```

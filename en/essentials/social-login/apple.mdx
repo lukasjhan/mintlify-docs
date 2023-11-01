@@ -1,0 +1,94 @@
+---
+title: 'Apple'
+icon: 'apple'
+---
+
+To enable Apple OAuth, you first need to create an application on [Apple Developer](https://developer.apple.com/). You'll then configure the Client ID, Client Secret, Team ID, and Key ID of the created application in the Furo Console.
+
+## Creating the Application
+
+<img src="/images/ap1.png" alt="apple" />
+
+After logging in to Apple Developer, click on Certificates, Identifiers & Profiles. Here's how you'll create an application on this page.
+
+<img src="/images/ap2.png" alt="apple" />
+
+## 2. Creating an App ID
+
+Select "Identifiers" from the left menu and click the + button to create an App ID.
+
+<img src="/images/ap3.webp" alt="apple" />
+
+Choose an App ID.
+
+<img src="/images/ap4.png" alt="apple" />
+
+Enter an ID and check "Sign in with Apple" at the bottom before creating the App ID.
+
+<img src="/images/ap5.png" alt="apple" />
+
+## 3. Creating a Service ID
+
+Similar to creating an App ID, click the + button to create a Service ID.
+
+<img src="/images/ap6.webp" alt="apple" />
+
+Select a Service ID.
+
+<img src="/images/ap7.png" alt="apple" />
+
+Enter an Identifier.
+
+<img src="/images/ap8.webp" alt="apple" />
+
+In the Service ID settings screen, select the App ID created earlier. Additionally, provide a Domain and Return URL. You can find the Return URL in the Furo console settings. Please refer to the "Furo Console Setting" section below for more details.
+
+<img src="/images/ap9.jpeg" alt="apple" />
+
+You just need to enter the Furo Redirect URL.
+
+## 3. Generating and Downloading a Key
+
+<img src="/images/ap10.png" alt="apple" />
+
+Choose "Keys" from the left menu, then click the + button to create a key.
+
+Select "Sign in with Apple" during key creation.
+
+Once the key is created, click the "Download" button to download the key file. Be careful as you can only download it once.
+
+## 4. Entering Required Values in the Furo Console
+
+### Client ID
+
+<img src="/images/ap11.png" alt="apple" />
+
+The Identifier of the Service ID is your Client ID.
+
+### Team ID
+
+<img src="/images/ap12.png" alt="apple" />
+
+The value displayed next to your name in the top right corner of the screen is your Team ID.
+
+### Key ID
+
+<img src="/images/ap13.png" alt="apple" />
+
+Click on the created key to view its information, and you'll find the Key ID.
+
+### Client Secret
+
+When you download the key, a file named `AuthKey_{random string}.p8` will be downloaded to your "Downloads" folder. The content of this file is your Client Secret. Open it with a text editor, copy its content, and paste it into the Furo console.
+
+## Furo Console Setting
+
+After accessing the Furo Console, select "Configuration" on the left and choose "Login Method." You'll see the following screen.
+
+<img src="/images/ap14.jpeg" alt="apple" />
+
+Go into the detailed settings for Apple login and enter the values obtained earlier one by one.
+
+<img src="/images/ap15.jpeg" alt="apple" />
+
+After entering the Client ID, Key ID, Team ID, and the Client Secret you downloaded as a file, click the "Save" button to enable Apple login.

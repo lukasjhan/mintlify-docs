@@ -1,0 +1,54 @@
+------
+title: 'Naver'
+icon: 'n'
+---
+
+To enable Naver OAuth, you need to create an application in [Naver Login](https://developers.naver.com/products/login/api/api.md) and set the generated Client ID and Client Secret in the Furo Console.
+
+## 1. Adding a Naver Login Application
+
+Access Naver Developers. Click the Application button on the top menu tab. Click the [Register Application] button on the right of the Application list. Enter the application name and set the usage API to Naver Login.
+
+<img src="/images/naver1.png" alt="naver" />
+
+Select the provided information. Please note that you need to verify your application to receive information other than email addresses.
+
+<img src="/images/naver2.webp" alt="naver" />
+
+Add PC web and Mobile web to the usage environment.
+
+<img src="/images/naver3.png" alt="naver" />
+
+Add https://api.furo.one to the service URL and add `https://api.furo.one/oauth/callback/<FURO_PROJECT_CLIENT_ID>` to the Callback URL before saving.
+
+<img src="/images/naver4.png" alt="naver" />
+
+Copy the Furo Redirect URL item in the Furo Console Naver Login settings for the Callback URL.
+
+<img src="/images/naver5.jpeg" alt="naver" />
+
+## 2. Activate Naver Login for the Project
+
+Check the Client ID and Client Secret in the created project.
+
+<img src="/images/naver6.png" alt="naver" />
+
+Click the Naver Login Settings button in the Furo Console's login method tab.
+
+<img src="/images/naver7.jpeg" alt="naver" />
+
+Enter the Client ID and Client Secret, and save.
+
+<img src="/images/naver8.jpeg" alt="naver" />
+
+## 3. Check the Login Page
+
+<img src="/images/naver9.png" alt="naver" />
+
+## 4. Customize the Login Button
+
+If you want to customize the Naver Login button, you can embed the API URL provided by Furo in your custom login button.
+
+<img src="/images/naver10.jpeg" alt="naver" />
+
+By calling a method that redirects to the URL above in the onClick() prop of your custom button, users will be taken to the Naver login prompt. Once Naver authentication is completed, they will be redirected to the Callback URI configured in your project.

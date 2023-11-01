@@ -1,0 +1,74 @@
+---
+title: 'Google'
+icon: 'google'
+---
+
+To enable Google OAuth, you need to create an OAuth Client in the [Google API Console](https://console.cloud.google.com/apis/dashboard) and configure the Client ID and Client Secret in your project created in the [Furo Console](https://console.furo.one/).
+
+## 1. Create a Google Cloud Project
+
+Access the Google API Console.
+
+Click the **New Project** button in the top left to create a new project.
+
+<img src="/images/google1.png" alt="google" />
+
+## 2. Configure the OAuth Consent Screen
+
+Select OAuth consent screen from the left menu.
+
+<img src="/images/google2.png" alt="google" />
+
+Choose "External" as the User Type and click the Create button.
+
+<img src="/images/google3.png" alt="google" />
+
+Add furo.one to the Authorized domains and proceed.
+
+<img src="/images/google4.webp" alt="google" />
+
+Set permissions for the information your users will use from their Google accounts. Include /auth/userinfo.email and /auth/userinfo.profile for permissions.
+
+<img src="/images/google5.png" alt="google" />
+
+The remaining settings are optional, so click the **Save and Close** button to complete.
+
+## 3. Create and Configure the Google OAuth Client
+
+In the Credentials page, select [CREATE CREDENTIALS > OAuth client ID].
+
+<img src="/images/google6.png" alt="google" />
+
+Input the necessary configuration items to create the OAuth Client. When creating it, add `https://api.furo.one/oauth/callback/<FURO_PROJECT_CLIENT_ID>` to the Authorized redirect URIs. You can copy and paste the redirect URI from the Google Login settings in the Furo Console.
+
+<img src="/images/google7.jpeg" alt="google" />
+
+<img src="/images/google8.jpeg" alt="google" />
+
+<img src="/images/google9.png" alt="google" />
+
+Save the changes.
+
+## 4. Activate Google Auth for Your Project
+
+Copy the Client ID and Client Secret of the OAuth Client you created on the Google Credentials page.
+
+<img src="/images/google10.png" alt="google" />
+
+Input the copied Client ID in the Google Client ID and Client Secret fields in the Furo Console.
+
+<img src="/images/google11.png" alt="google" />
+
+<img src="/images/google12.jpeg" alt="google" />
+
+Once these settings are complete, the Log in with Google button will be activated on your project's login page.
+
+<img src="/images/google13.jpeg" alt="google" />
+
+## 5. Customize the Google Login Button
+
+If you wish to customize the Google Login button, you can embed the API URL provided by Furo in your custom login button.
+
+<img src="/images/google14.jpeg" alt="google" />
+
+By calling a method in the onClick() prop of your button that redirects to the above URL, users will be taken to the Google login prompt. Once Google authentication is completed, they will be redirected to the Callback URI configured in your project.

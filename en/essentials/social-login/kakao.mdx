@@ -1,0 +1,61 @@
+---
+title: 'Kakao'
+icon: 'k'
+---
+
+To enable Kakao OAuth, you need to create an application on [Kakao Developers](https://developers.kakao.com/docs/latest/ko/kakaologin/common) and set the generated REST API key as the API Key in the Furo Console.
+
+1. Adding a Kakao Login Application
+
+Visit Kakao Developers. Click the **내 애플리케이션 (My Applications)** button in the top left to log in with your Kakao account. Click the **애플리케이션 추가하기 (Add an Application)** button, enter the app information, and click the 저장 (Save) button to create the application.
+
+<img src="/images/kakao1.webp" alt="kakao" />
+
+## 2. Register a Platform
+
+Select [앱 설정 (App Settings) > 플랫폼 (Platform)] from the left menu. Click the Web 플랫폼 등록 (Register Web Platform) button.
+
+<img src="/images/kakao1.webp" alt="kakao" />
+
+Add `https://api.furo.one` to the 사이트 도메인 (Site Domain) field and save.
+
+<img src="/images/kakao2.png" alt="kakao" />
+
+## 3. Configure Kakao Login
+
+From the left menu, select [제품 설정 (Product Settings) > 카카오 로그인 (Kakao Login)]. In the 활성화 설정 (Activation Settings) section, enable the status switch.
+
+<img src="/images/kakao3.png" alt="kakao" />
+
+Under the Redirect URI 항목 (Redirect URI), click the Redirect URI 등록 (Add Redirect URI) button.
+
+<img src="/images/kakao4.png" alt="kakao" />
+
+Add `https://api.furo.one/oauth/callback/<FURO_PROJECT_CLIENT_ID>` to the Redirect URI, and save. You can copy this value from the Furo Redirect URL field in the Kakao Login settings in the Furo Console.
+
+<img src="/images/kakao5.png" alt="kakao" />
+
+<img src="/images/kakao6.jpeg" alt="kakao" />
+
+## 4. Activate Kakao Auth for Your Project
+
+From the left menu, select [앱 설정 (App Settings) > 요약정보 (Summary)]. Copy the REST API key from the 앱 키 (App Key) field.
+
+<img src="/images/kakao7.png" alt="kakao" />
+
+Paste the copied REST API key into the REST API Key input field in the Kakao Login settings in the Furo Console, and save.
+
+<img src="/images/kakao8.png" alt="kakao" />
+<img src="/images/kakao8.jpeg" alt="kakao" />
+
+Once these settings are complete, the Kakao로 시작하기 (Start with Kakao) button will be activated on your project's login page.
+
+<img src="/images/kakao9.jpeg" alt="kakao" />
+
+## 5. Customize the Login Button
+
+If you wish to customize the Kakao Login button, you can embed the API URL provided by Furo in your custom login button.
+
+<img src="/images/kakao11.jpeg" alt="kakao" />
+
+By calling a method in the onClick() prop of your button that redirects to the above URL, users will be taken to the Kakao login prompt. Once Kakao authentication is completed, they will be redirected to the Callback URI configured in your project.

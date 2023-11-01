@@ -1,0 +1,43 @@
+---
+title: 'How to Verify JWT'
+description: 'Learn how to verify user tokens.'
+---
+
+In various cases, you might need to verify users in your service, such as when you want to restrict API calls to users of your service only on your service's backend API server. How can the backend API server determine whether the caller of an API is a user of your service or not?
+
+## Verification Process
+
+1. Users visiting your service's web page attempt to log in.
+2. The login request is sent to Furo, which verifies the user's information. If everything is correct and there are no issues, Furo responds with a JWT, signed with your project's Client Secret, for the authenticated user.
+
+<Info>
+  You can find the Client Secret for the project you created in the [Project
+  Info] tab on the [Furo Console](https://console.furo.one).
+</Info>
+
+3. Your web page sends the received JWT in the request to the backend API server. (Usually, JWT is included in the Authorization header.)
+4. The backend API server verifies whether the JWT was signed with your project's Client Secret and, if everything checks out, it processes the client's request and responds.
+
+## Sample code
+
+```js
+const jwt = require('jsonwebtoken');
+
+// Your secret key (keep this secret!)
+const secretKey = 'your-secret-key';
+
+// An example JWT to verify
+const token = 'your-jwt-token-here';
+
+try {
+  // Verify the JWT
+  const decoded = jwt.verify(token, secretKey);
+
+  // If verification succeeds, 'decoded' will contain the payload data
+  console.log('JWT Verified successfully');
+  console.log('Decoded JWT payload:', decoded);
+} catch (error) {
+  // If verification fails, an error will be thrown
+  console.error('JWT verification failed:', error.message);
+}
+```

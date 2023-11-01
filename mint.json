@@ -50,7 +50,8 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["quickstart"]
+      "pages": ["quickstart"],
+      "version": "Korean"
     },
     {
       "group": "Setting Up",
@@ -70,7 +71,8 @@
         },
         "essentials/style",
         "essentials/approval"
-      ]
+      ],
+      "version": "Korean"
     },
     {
       "group": "Make it yours",
@@ -90,7 +92,55 @@
           "icon": "gear",
           "pages": ["essentials/slack"]
         }
-      ]
+      ],
+      "version": "Korean"
+    },
+    {
+      "group": "Get Started",
+      "pages": ["en/quickstart"],
+      "version": "English"
+    },
+    {
+      "group": "Setting Up",
+      "pages": [
+        "en/essentials/preview",
+        {
+          "group": "Configure Social Login",
+          "icon": "share-from-square",
+          "pages": [
+            "en/essentials/social-login/overview",
+            "en/essentials/social-login/google",
+            "en/essentials/social-login/kakao",
+            "en/essentials/social-login/naver",
+            "en/essentials/social-login/apple",
+            "en/essentials/social-login/microsoft"
+          ]
+        },
+        "en/essentials/style",
+        "en/essentials/approval"
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Make it yours",
+      "pages": [
+        {
+          "group": "Using User JWT",
+          "icon": "key",
+          "pages": [
+            "en/essentials/token-verify",
+            "en/essentials/token-payload",
+            "en/essentials/token-refresh",
+            "en/essentials/token-save"
+          ]
+        },
+        {
+          "group": "Integrate API Hooks",
+          "icon": "gear",
+          "pages": ["en/essentials/slack"]
+        }
+      ],
+      "version": "English"
     },
     {
       "group": "SDK Documentation",
