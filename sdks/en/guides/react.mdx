@@ -23,7 +23,12 @@ yarn install
 
 Navigate to the [Configuration > For Developers] tab in the [Furo Console](https://console.furo.one) and perform the following two tasks:
 
-1. Set the Client ID obtained from the console in the clientId field of the App.js file.
+1. Move the **.env** file downloaded from the console to the project folder. Or, create a **.env** file and set the environment variables as follows.
+
+```bash
+REACT_APP_CLIENT_ID="{{YOUR_CLIENT_ID}}"
+```
+
 2. Change the Default Callback URI in the console's input box from the default value `https://sample.furo.one/{{YOUR_CLIENT_ID}}` to `http://localhost:3000/{{YOUR_CLIENT_ID}}`.
 
 <Accordion title="redirectUri and callbackUri">

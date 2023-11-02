@@ -82,7 +82,12 @@ To retrieve deep link params in the future, add a linking config in App.js and i
 
 ## 2. Integrate Furo Login
 
-1. Insert your Furo project's Client ID in the clientId field of the App.js file.
+1. Move the **.env** file downloaded from the console to the project folder. Or, create a **.env** file and set the environment variables as follows. If you cannot use the .env file, enter the Client ID obtained from the console in clientId of the App.js file.
+
+```bash
+EXPO_PUBLIC_CLIENT_ID="{{YOUR_CLIENT_ID}}"
+```
+
 2. Change the Default Callback URI in the console's input box from the default value `https://sample.furo.one/{{YOUR_CLIENT_ID}}` to `http://localhost:3000/{{YOUR_CLIENT_ID}}`.
 
 <Accordion title="redirectUri and callbackUri">

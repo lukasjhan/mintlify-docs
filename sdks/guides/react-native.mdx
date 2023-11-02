@@ -82,7 +82,12 @@ export default function App() {
 
 ## 2. Furo 로그인 연동하기
 
-1. App.js 파일의 clientId에 콘솔에서 가져온 Client ID를 넣습니다.
+1. 콘솔에서 다운로드 받은 **.env**파일을 프로젝트 폴더에 옮깁니다. 또는 **.env**파일을 생성한 후 아래와 같이 환경변수를 설정합니다. 만약.env 파일을 사용할 수 없다면 App.js 파일의 clientId에 콘솔에서 가져온 Client ID를 넣습니다.
+
+```bash
+EXPO_PUBLIC_CLIENT_ID="{{YOUR_CLIENT_ID}}"
+```
+
 2. 콘솔 입력창의 Default Callback URI에 기본값 `https://sample.furo.one/{{YOUR_CLIENT_ID}}` 를 `http://localhost:3000/{{YOUR_CLIENT_ID}}` 로 변경합니다.
 
 <Accordion title="redirectUri 와 callbackUri">
