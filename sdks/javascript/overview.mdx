@@ -9,7 +9,7 @@ Furo Javascript SDK는 웹 애플리케이션에서 쉽게 IAM(Identity and Acce
 
 Javascript SDK는 스크립트 태그를 사용하여 웹사이트에 로드할 수 있습니다. 사이트 `<head>` 요소에 다음 Script를 추가하세요.
 
-<Note>Furo Console에 접속하여 Developer 메뉴에서 `Client ID`와 `Public API Key`를 확인할 수 있습니다.</Note>
+<Note>[Furo Console](https://console.furo.one)에 접속하여 Developer 메뉴에서 `Client ID`와 `Public API Key`를 확인할 수 있습니다.</Note>
 ```html
 <script src="https://cdn.furo.one/furo-js-sdk/furo.min.js" data-client-id="{YOUR_CLIENT_ID}" data-public-api-key="{YOUR_PUBLIC_API_KEY}" />
 ```
@@ -71,6 +71,8 @@ window.Furo.logout();
 
 ### 로그인 UI 컴포넌트
 
+<Warning>여기에 로그인 UI 이미지</Warning>
+
 #### `mountLogin(containerId)`
 
 지정된 컨테이너에 로그인 UI를 마운트합니다.
@@ -94,13 +96,15 @@ window.Furo.openLogin();
 
 #### `closeLogin()`
 
-열려 있는 로그인 UI를 화면에서 보이지 않게합니다.
+열려있는 로그인 UI를 화면에서 보이지 않게합니다.
 
 ```javascript
 window.Furo.closeLogin();
 ```
 
 ### 사용자 프로필 UI 컴포넌트
+
+<Warning>여기에 사용자 프로필 UI 이미지</Warning>
 
 #### `mountUserProfile(containerId)`
 
@@ -125,7 +129,7 @@ window.Furo.openUserProfile();
 
 #### `closeUserProfile()`
 
-열려 있는 사용자 프로필 UI를 화면에서 보이지 않게합니다.
+열려있는 사용자 프로필 UI를 화면에서 보이지 않게합니다.
 
 ```javascript
 window.Furo.closeUserProfile();
@@ -133,11 +137,13 @@ window.Furo.closeUserProfile();
 
 ### 워크스페이스 UI 컴포넌트
 
+<Warning>여기에 워크스페이스 UI 이미지</Warning>
+
 #### `mountWorkspaceProfile(containerId)`
 
-지정된 컨테이너에 작업 공간 프로필 UI를 마운트합니다.
+지정된 컨테이너에 워크스페이스 프로필 UI를 마운트합니다.
 
-**파라메터**: `containerId` (작업 공간 프로필 UI를 마운트할 HTML 요소의 id)
+**파라메터**: `containerId` (워크스페이스 프로필 UI를 마운트할 HTML 요소의 id)
 
 ```html
 <script>
@@ -148,7 +154,7 @@ window.Furo.closeUserProfile();
 
 #### `openWorkspaceProfile()`
 
-작업 공간 프로필 UI를 화면에 표시합니다.
+워크스페이스 프로필 UI를 화면에 표시합니다.
 
 ```javascript
 window.Furo.openWorkspaceProfile();
@@ -156,7 +162,7 @@ window.Furo.openWorkspaceProfile();
 
 #### `closeWorkspaceProfile()`
 
-열려 있는 작업 공간 프로필 UI를 화면에서 보이지 않게합니다.
+열려있는 워크스페이스 프로필 UI를 화면에서 보이지 않게합니다.
 
 ```javascript
 window.Furo.closeWorkspaceProfile();
