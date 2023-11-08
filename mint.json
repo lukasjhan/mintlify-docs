@@ -174,13 +174,6 @@
             }
           ]
         },
-        {
-          "group": "Javascript",
-          "icon": "js",
-          "pages": [
-            "sdks/javascript/overview"
-          ]
-        },
         "sdks/guides/next",
         "sdks/guides/react-native",
         "sdks/guides/vue"
