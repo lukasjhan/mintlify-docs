@@ -435,10 +435,6 @@
     {
       "source": "/guides/social-login/naver-oauth",
       "destination": "/essentials/social-login/naver"
-    },
-    {
-      "source": "/guides/social-login/github-oauth",
-      "destination": "/essentials/social-login/github"
     }
   ],
   "modeToggle": {
