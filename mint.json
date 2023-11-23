@@ -66,7 +66,8 @@
             "essentials/social-login/kakao",
             "essentials/social-login/naver",
             "essentials/social-login/apple",
-            "essentials/social-login/microsoft"
+            "essentials/social-login/microsoft",
+            "essentials/social-login/github"
           ]
         },
         "essentials/style",
@@ -113,7 +114,8 @@
             "en/essentials/social-login/kakao",
             "en/essentials/social-login/naver",
             "en/essentials/social-login/apple",
-            "en/essentials/social-login/microsoft"
+            "en/essentials/social-login/microsoft",
+            "en/essentials/social-login/github"
           ]
         },
         "en/essentials/style",
@@ -218,7 +220,8 @@
             "api-reference/auth/oauth/kakao",
             "api-reference/auth/oauth/naver",
             "api-reference/auth/oauth/apple",
-            "api-reference/auth/oauth/microsoft"
+            "api-reference/auth/oauth/microsoft",
+            "api-reference/auth/oauth/github"
           ]
         },
         {
@@ -317,7 +320,8 @@
             "api-reference/auth/oauth/kakao",
             "api-reference/auth/oauth/naver",
             "api-reference/auth/oauth/apple",
-            "api-reference/auth/oauth/microsoft"
+            "api-reference/auth/oauth/microsoft",
+            "api-reference/auth/oauth/github"
           ]
         },
         {
@@ -431,6 +435,10 @@
     {
       "source": "/guides/social-login/naver-oauth",
       "destination": "/essentials/social-login/naver"
+    },
+    {
+      "source": "/guides/social-login/github-oauth",
+      "destination": "/essentials/social-login/github"
     }
   ],
   "modeToggle": {

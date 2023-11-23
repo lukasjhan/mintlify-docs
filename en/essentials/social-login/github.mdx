@@ -1,0 +1,66 @@
+---
+title: 'Github'
+icon: 'github'
+---
+
+To activate Github OAuth, you first need to create a Github OAuth App. Create the OAuth App on [Github](https://github.com/) and configure the Client ID and Client Secret generated within Furo Console for your project.
+
+## 1. Register Github OAuth App
+
+Access Github and click on the profile icon in the upper right corner.
+
+<img src="/images/github1.png" alt="github" />
+
+After clicking the icon, select `Settings` from the sidebar that appears.
+<img src="/images/github2.png" alt="github" />
+
+In `Settings`, click on the `Developer Settings` tab in the lower-left.
+<img src="/images/github3.png" alt="github" />
+
+Select the `OAuth Apps` tab, then click `New OAuth App`.
+<img src="/images/github4.png" alt="github" />
+
+Fill in `Application name`, `Homepage URL`, and `Authorization callback URL`, then click the `Register application` button.
+
+| Field | Description |
+| ----- | ----------- |
+| `Application name` | Project name |
+| `Homepage URL` | Project URL |
+| `Authorization callback URL` | URL to redirect after Github login, should be `https://api.furo.one/oauth/callback/<FURO_PROJECT_CLIENT_ID>`|
+
+<img src="/images/github5.png" alt="github" />
+
+On the created app page, click the `Generate a new client secret` button.
+<img src="/images/github6.png" alt="github" />
+
+Save the generated `Client ID` and `Client Secret` for later use.
+<img src="/images/github7.png" alt="github" />
+
+## 2.  Enabling Github Login in Furo Project
+
+Copy the `Client ID` and `Client Secret` from the Github OAuth App.
+
+Navigate to [Furo Console](https://console.furo.one), go to `Login Methods` section in `Configuration` Tab.
+Click the setting button next to `Github Login`, and paste the copied `Client ID` and `Client Secret`.
+
+<img src="/images/github8.png" alt="github" />
+
+<img src="/images/github9.png" alt="github" />
+
+Click `save`, and make sure to activate the Github Login by toggling the switch.
+
+<img src="/images/github10.png" alt="github" />
+
+## 4. 로그인 페이지 확인
+
+Click on "Your Login Page" in the top left corner of Furo Console to confirm that Github Login is activated.
+
+<img src="/images/github11.png" alt="github" />
+
+## 5. Customize the Github Login Button
+
+If you wish to customize the Github Login button, you can embed the API URL provided by Furo in your custom login button.
+
+<img src="/images/github12.png" alt="github" />
+
+By calling a method that redirects to the URL above in the onClick() prop of your custom button, users will be taken to the Github login prompt. Once Microsoft authentication is completed, they will be redirected to the Callback URI configured in your project.

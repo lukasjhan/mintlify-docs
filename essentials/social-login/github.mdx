@@ -1,0 +1,66 @@
+---
+title: 'Github'
+icon: 'github'
+---
+
+Github OAuth를 활성화하기 위해서는 우선 깃헙 OAuth App을 생성해야 합니다. [Github](https://github.com/)에서 OAuth App을 생성하고, 생성된 Client의 ID와 Client Secret을 Furo Console에서 생성한 프로젝트에 설정해야 합니다.
+
+## 1. Github OAuth App 등록하기
+
+Github에 접속후, 우측 상단의 프로필아이콘을 클릭합니다.
+
+<img src="/images/github1.png" alt="github" />
+
+아이콘 클릭후 생성된 사이드바에서, `Settings`를 클릭합니다.
+<img src="/images/github2.png" alt="github" />
+
+`Settings`의 왼쪽하단에 있는 `Developer Settings` 탭을 클릭합니다.
+<img src="/images/github3.png" alt="github" />
+
+`OAuth Apps`탭을 선택한 후, `New OAuth App`을 클릭합니다.
+<img src="/images/github4.png" alt="github" />
+
+`Application name`, `Homepage URL`, 그리고 `Authorization callback URL`을 기입한 후, 하단의 `Register application` 버튼을 눌러줍니다.
+
+| Field | Description |
+| ----- | ----------- |
+| `Application name` | 프로젝트 이름 |
+| `Homepage URL` | 프로젝트의 URL |
+| `Authorization callback URL` | Github 로그인 후 리다렉션 될 URL입니다. `https://api.furo.one/oauth/callback/<FURO_PROJECT_CLIENT_ID>` 이어야합니다. |
+
+<img src="/images/github5.png" alt="github" />
+
+생성된 앱 페이지에서, `Generate a new client secret`버튼을 클릭합니다.
+<img src="/images/github6.png" alt="github" />
+
+이때 생성된 `Client ID`와, `Client Secret`은 나중에 활용됨으로, 잘 저장해둡니다.
+<img src="/images/github7.png" alt="github" />
+
+
+## 2. Furo 프로젝트의 Github 로그인 활성화
+
+Github OAuth App에서 생성한 Client ID와 Client Secret을 복사해줍니다.
+
+복사한 Client ID와 Client Secret을 Furo Console의 Github Login Setting에 저장합니다.
+
+<img src="/images/github8.png" alt="github" />
+
+<img src="/images/github9.png" alt="github" />
+
+Github Login을 활성화 해줍니다.
+
+<img src="/images/github10.png" alt="github" />
+
+## 4. 로그인 페이지 확인
+
+Furo Console 왼쪽 상단의 "Your Login Page"를 누르면 다음과 같이 Github Login이 활성화 된것을 확인할 수 있습니다.
+
+<img src="/images/github11.png" alt="github" />
+
+## 5. Github 로그인 버튼 커스터마이징
+
+만약 Github Login 버튼을 커스터마이징하고자 한다면 Furo에서 제공하는 API URL을 커스텀 로그인 버튼에 임베딩하여 사용할 수 있습니다.
+
+<img src="/images/github12.png" alt="github" />
+
+직접 만드신 버튼의 onClick() prop에 위 URL로 리다이렉트 하는 메서드를 호출하면 깃헙 로그인 프롬프트로 이동하게 되고, 깃헙 인증이 완료되면 최종적으로 프로젝트에 설정된 Callback URI로 리다이렉트됩니다.
