@@ -3,7 +3,12 @@ title: 'Github'
 icon: 'github'
 ---
 
-Github OAuth를 활성화하기 위해서는 우선 깃헙 OAuth App을 생성해야 합니다. [Github](https://github.com/)에서 OAuth App을 생성하고, 생성된 Client의 ID와 Client Secret을 Furo Console에서 생성한 프로젝트에 설정해야 합니다.
+Github OAuth를 활성화하기 위해서는 우선 Github OAuth App을 생성해야 합니다. [Github](https://github.com/)에서 OAuth App을 생성하고, 생성된 Client의 ID와 Client Secret을 Furo Console에서 생성한 프로젝트에 설정해야 합니다.
+
+<Note>
+  Github OAuth를 추가하는 경우, Github으로 로그인한 사용자의 email은 사용자의 Github 계정에 등록된 public 이메일 (혹은 public 이메일이 없을 경우 primary 이메일)로 설정이 됩니다.
+  사용자가 Github에서 기존에 등록된 email을 변경후 Github 로그인 시, 새로운 유저로 등록됩니다. 
+</Note>
 
 ## 1. Github OAuth App 등록하기
 
@@ -63,4 +68,4 @@ Furo Console 왼쪽 상단의 "Your Login Page"를 누르면 다음과 같이 Gi
 
 <img src="/images/github12.png" alt="github" />
 
-직접 만드신 버튼의 onClick() prop에 위 URL로 리다이렉트 하는 메서드를 호출하면 깃헙 로그인 프롬프트로 이동하게 되고, 깃헙 인증이 완료되면 최종적으로 프로젝트에 설정된 Callback URI로 리다이렉트됩니다.
+직접 만드신 버튼의 onClick() prop에 위 URL로 리다이렉트 하는 메서드를 호출하면 Github 로그인 프롬프트로 이동하게 되고, Github 인증이 완료되면 최종적으로 프로젝트에 설정된 Callback URI로 리다이렉트됩니다.
