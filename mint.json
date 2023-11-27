@@ -50,9 +50,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "quickstart"
-      ],
+      "pages": ["quickstart"],
       "version": "Korean"
     },
     {
@@ -92,18 +90,14 @@
         {
           "group": "API 훅 연동하기",
           "icon": "gear",
-          "pages": [
-            "essentials/slack"
-          ]
+          "pages": ["essentials/slack"]
         }
       ],
       "version": "Korean"
     },
     {
       "group": "Get Started",
-      "pages": [
-        "en/quickstart"
-      ],
+      "pages": ["en/quickstart"],
       "version": "English"
     },
     {
@@ -143,18 +137,14 @@
         {
           "group": "Integrate API Hooks",
           "icon": "gear",
-          "pages": [
-            "en/essentials/slack"
-          ]
+          "pages": ["en/essentials/slack"]
         }
       ],
       "version": "English"
     },
     {
       "group": "SDK Documentation",
-      "pages": [
-        "sdks/overview"
-      ],
+      "pages": ["sdks/overview"],
       "version": "Korean"
     },
     {
@@ -167,10 +157,18 @@
             "sdks/guides/react",
             {
               "group": "SDK",
-              "pages": [
-                "sdks/react/furoProvider",
-                "sdks/react/useFuro"
-              ]
+              "pages": ["sdks/react/furoProvider", "sdks/react/useFuro"]
+            }
+          ]
+        },
+        {
+          "group": "Javascript",
+          "icon": "js",
+          "pages": [
+            "sdks/guides/javascript",
+            {
+              "group": "SDK",
+              "pages": ["sdks/javascript/window.furo"]
             }
           ]
         },
@@ -182,16 +180,12 @@
     },
     {
       "group": "Dart/Flutter",
-      "pages": [
-        "sdks/guides/flutter"
-      ],
+      "pages": ["sdks/guides/flutter"],
       "version": "Korean"
     },
     {
       "group": "SDK Documentation",
-      "pages": [
-        "sdks/en/overview"
-      ],
+      "pages": ["sdks/en/overview"],
       "version": "English"
     },
     {
@@ -204,10 +198,18 @@
             "sdks/en/guides/react",
             {
               "group": "SDK",
-              "pages": [
-                "sdks/en/react/furoProvider",
-                "sdks/en/react/useFuro"
-              ]
+              "pages": ["sdks/en/react/furoProvider", "sdks/en/react/useFuro"]
+            }
+          ]
+        },
+        {
+          "group": "Javascript",
+          "icon": "js",
+          "pages": [
+            "sdks/en/guides/javascript",
+            {
+              "group": "SDK",
+              "pages": ["sdks/en/javascript/window.furo"]
             }
           ]
         },
@@ -219,16 +221,12 @@
     },
     {
       "group": "Dart/Flutter",
-      "pages": [
-        "sdks/en/guides/flutter"
-      ],
+      "pages": ["sdks/en/guides/flutter"],
       "version": "English"
     },
     {
       "group": "API Documentation",
-      "pages": [
-        "api-reference/authentication"
-      ],
+      "pages": ["api-reference/authentication"],
       "version": "Korean"
     },
     {
@@ -322,17 +320,12 @@
     },
     {
       "group": "Data Structure",
-      "pages": [
-        "api-reference/data/user",
-        "api-reference/data/workspace"
-      ],
+      "pages": ["api-reference/data/user", "api-reference/data/workspace"],
       "version": "Korean"
     },
     {
       "group": "API Documentation",
-      "pages": [
-        "api-reference/en/authentication"
-      ],
+      "pages": ["api-reference/en/authentication"],
       "version": "English"
     },
     {
@@ -426,10 +419,7 @@
     },
     {
       "group": "Data Structure",
-      "pages": [
-        "api-reference/data/user",
-        "api-reference/data/workspace"
-      ],
+      "pages": ["api-reference/data/user", "api-reference/data/workspace"],
       "version": "English"
     }
   ],
@@ -471,8 +461,5 @@
   "feedback": {
     "thumbsRating": true
   },
-  "versions": [
-    "Korean",
-    "English"
-  ]
+  "versions": ["Korean", "English"]
 }
