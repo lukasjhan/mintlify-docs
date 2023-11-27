@@ -1,0 +1,100 @@
+---
+title: Furo Javascript SDK
+sidebarTitle: 'window.furo'
+---
+
+## window.furo
+
+`window.furo` 에 접근하면 Furo Javascript SDK의 모든 기능에 접근할 수 있습니다.
+아래는 사용하실수 있는 속성과 메소드 목록입니다.
+
+### 속성 (Properties)
+
+---
+
+| 속성              | 데이터 타입      | 설명                                                                                                                                    |
+| ----------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `version`         | `string`         | SDK의 현재 버전을 나타냅니다.                                                                                                           |
+| `isLoaded`        | `boolean`        | SDK가 성공적으로 로드되었는지 여부를 나타냅니다. 초기화가 완료되면 `true`를 반환합니다.                                                 |
+| `user`            | `User` \| `null` | 현재 로그인한 사용자에 대한 정보를 담은 [User](/api-reference/data/user) 객체입니다. 사용자가 로그인하지 않은 경우 `null`을 반환합니다. |
+| `isAuthenticated` | `boolean`        | 로그인 한 경우 `true`, 로그인하지 않은 경우 `false`를 반환합니다.                                                                       |
+| `isLoginOpened`   | `boolean`        | 로그인 UI가 현재 열려 있는지 여부를 나타냅니다.                                                                                         |
+
+### 메소드 (Methods)
+
+---
+
+#### `init(options)`
+
+SDK를 초기화합니다. 설정 옵션을 파라메터로 받습니다.
+
+**파라메터**: `InitOptions` 객체
+`init` 메소드에서 사용되는 `InitOptions` 객체는 다양한 설정을 제공합니다. 이 객체의 각 속성은 다음과 같습니다:
+
+| 속성       | 타입      | 필수 | 기본값 | 설명                                                                                                                           |
+| ---------- | --------- | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `clientId` | `string`  | Yes  | -      | Furo 콘솔의 Developer 탭에서 확인하실수 있습니다.<br/>`<script>` 태그 안에 `data-client-id` 를 지정했다면 생략가능합니다.      |
+| `apiKey`   | `string`  | Yes  | -      | Furo 콘솔의 Developer 탭에서 확인하실수 있습니다.<br/>`<script>` 태그 안에 `data-public-api-key` 를 지정했다면 생략가능합니다. |
+| `popup`    | `boolean` | No   | `true` | OAuth 인증UI가 팝업으로 표시될지 여부를 결정합니다.<br/> `false`일경우 redirect 방식으로 동작합니다.                           |
+
+```javascript
+window.furo.init({
+  clientId: '{YOUR_CLIENT_ID}',
+  publicKey: '{YOUR_PUBLIC_API_KEY}',
+  popup: true,
+});
+```
+
+#### `logout()`
+
+현재 사용자를 로그아웃시킵니다.
+
+```javascript
+window.furo.logout();
+```
+
+#### `openLogin()`
+
+로그인 UI를 화면에 표시합니다.
+
+```javascript
+window.furo.openLogin();
+```
+
+#### `closeLogin()`
+
+열려있는 로그인 UI를 화면에서 보이지 않게합니다.
+
+```javascript
+window.furo.closeLogin();
+```
+
+### 콜백 메소드 (Callback Methods)
+
+---
+
+#### `onLogin(callback)`
+
+로그인 이벤트가 발생했을 때 호출되는 콜백 함수를 설정합니다. 사용자가 로그인하면 이 콜백 함수가 호출됩니다.
+
+**파라메터**: `(user: object) => void` - 사용자 객체를 파라메터로 받는 콜백 함수.
+
+```javascript
+window.furo.onLogin((user) => {
+  // 사용자 로그인 처리
+  console.log('Logged in user:', user);
+});
+```
+
+#### `onLogout(callback)`
+
+로그아웃 이벤트가 발생했을 때 호출되는 콜백 함수를 설정합니다. 사용자가 로그아웃하면 이 콜백 함수가 호출됩니다.
+
+**파라메터**: `() => void` - 로그아웃 시 호출될 콜백 함수.
+
+```javascript
+window.furo.onLogout(() => {
+  // 사용자 로그아웃 처리
+  console.log('User logged out');
+});
+```
