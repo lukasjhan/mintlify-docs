@@ -168,7 +168,7 @@
             "sdks/guides/javascript",
             {
               "group": "SDK",
-              "pages": ["sdks/javascript/window.furo"]
+              "pages": ["sdks/javascript/window-furo"]
             }
           ]
         },
@@ -209,7 +209,7 @@
             "sdks/en/guides/javascript",
             {
               "group": "SDK",
-              "pages": ["sdks/en/javascript/window.furo"]
+              "pages": ["sdks/en/javascript/window-furo"]
             }
           ]
         },
