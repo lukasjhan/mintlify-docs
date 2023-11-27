@@ -1,0 +1,56 @@
+---
+title: 'Javascript SDK Guides'
+description: 'Guidance on integrating Furo login using Javascript SDK.'
+---
+
+The Furo Javascript SDK is designed to easily integrate IAM (Identity and Access Management) features into web applications. This SDK offers a range of functionalities, including OAuth login, user management, and token management.
+
+## Installation
+
+<Warning>On the home screen of the [Furo Console](https://console.furo.one), select the Javascript SDK icon to copy a script configured for your project and use it as is.</Warning> The Javascript SDK can be loaded into your website using a script tag. Add the following script to your site's `<head>` element.
+
+```html index.html
+<script
+  defer
+  src="https://cdn.furo.one/sdk/furo.min.js"
+  data-client-id="{YOUR_CLIENT_ID}"
+  data-public-api-key="{YOUR_PUBLIC_API_KEY}"
+></script>
+```
+
+Alternatively, you can insert a simpler version and pass the necessary values during the initialization phase without any issue.
+
+```html index.html
+<script defer src="https://cdn.furo.one/sdk/furo.min.js"></script>
+```
+
+## QuickStart
+
+Have you installed the script in your site’s `<head>` element? If so, you can easily add login functionality to your web application using the Furo Javascript SDK. Follow the steps below to get started quickly.
+
+<Steps>
+  <Step title="Initialize the SDK">
+  Initialize the SDK when the web page loads. To do this, add the following JavaScript code inside a `<script>` tag on your page.
+```html
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    window.furo.init();
+  });
+</script>
+```
+  </Step>
+  <Step title="Connect to the Login Button">
+  Add a login button inside your `<body>` tag, and set it up to call the openLogin method when clicked.
+```html
+<button onclick="window.furo.openLogin()">Login</button>
+```
+  </Step>
+  <Step title="Login Complete!">
+    <Frame>
+      <img src="/images/login-sdk-en.jpg" />
+    </Frame>
+  </Step>
+</Steps>
+
+Check out a working example in the codesandbox playground.
+https://codesandbox.io/p/sandbox/furo-js-sample-pt8zm6

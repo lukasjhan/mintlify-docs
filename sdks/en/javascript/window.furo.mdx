@@ -1,0 +1,100 @@
+---
+title: Furo Javascript SDK
+sidebarTitle: 'window.furo'
+---
+
+## window.furo
+
+Access to all the features of the Furo Javascript SDK is available through `window.furo`.
+Below is a list of properties and methods you can use.
+
+### Properties
+
+---
+
+| Property          | Data Type        | Description                                                                                                                                  |
+| ----------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `version`         | `string`         | Indicates the current version of the SDK.                                                                                                    |
+| `isLoaded`        | `boolean`        | Indicates whether the SDK has been successfully loaded. Returns `true` once initialization is complete.                                      |
+| `user`            | `User` \| `null` | A [User](/api-reference/data/user) object containing information about the currently logged-in user. Returns `null` if no user is logged in. |
+| `isAuthenticated` | `boolean`        | Returns `true` if logged in, otherwise `false`.                                                                                              |
+| `isLoginOpened`   | `boolean`        | Indicates whether the login UI is currently open.                                                                                            |
+
+### Methods
+
+---
+
+#### `init(options)`
+
+Initializes the SDK. Takes configuration options as parameters.
+
+**Parameters**: `InitOptions` object
+The `InitOptions` object used in the `init` method offers various settings. Each property of this object is as follows:
+
+| Property   | Type      | Required | Default | Description                                                                                                                                |
+| ---------- | --------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `clientId` | `string`  | Yes      | -       | Can be found in the Developer tab of the Furo console.<br/>Can be omitted if `data-client-id` is specified inside the `<script>` tag.      |
+| `apiKey`   | `string`  | Yes      | -       | Can be found in the Developer tab of the Furo console.<br/>Can be omitted if `data-public-api-key` is specified inside the `<script>` tag. |
+| `popup`    | `boolean` | No       | `true`  | Determines whether the OAuth authentication UI will appear as a popup.<br/>If `false`, operates in redirect mode.                          |
+
+```javascript
+window.furo.init({
+  clientId: '{YOUR_CLIENT_ID}',
+  publicKey: '{YOUR_PUBLIC_API_KEY}',
+  popup: true,
+});
+```
+
+#### `logout()`
+
+Logs out the current user.
+
+```javascript
+window.furo.logout();
+```
+
+#### `openLogin()`
+
+Displays the login UI on the screen.
+
+```javascript
+window.furo.openLogin();
+```
+
+#### `closeLogin()`
+
+Hides the login UI if it is open.
+
+```javascript
+window.furo.closeLogin();
+```
+
+### Callback Methods
+
+---
+
+#### `onLogin(callback)`
+
+Sets a callback function to be called when a login event occurs. The callback function is called when a user logs in.
+
+**Parameter**: `(user: object) => void` - A callback function that takes a user object as a parameter.
+
+```javascript
+window.furo.onLogin((user) => {
+  // Handle user login
+  console.log('Logged in user:', user);
+});
+```
+
+#### `onLogout(callback)`
+
+Sets a callback function to be called when a logout event occurs. The callback function is called when a user logs out.
+
+**Parameter**: `() => void` - A callback function to be called upon logout.
+
+```javascript
+window.furo.onLogout(() => {
+  // Handle user logout
+  console.log('User logged out');
+});
+```
