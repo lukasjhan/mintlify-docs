@@ -24,8 +24,12 @@
   },
   "tabs": [
     {
-      "name": "SDK Reference",
+      "name": "SDKs",
       "url": "sdks"
+    },
+    {
+      "name": "Furo JS",
+      "url": "furo-js"
     },
     {
       "name": "API Reference",
@@ -141,6 +145,14 @@
         }
       ],
       "version": "English"
+    },
+    {
+      "group": "Getting Started",
+      "pages": [
+        "furo-js/getting-started/introduction.mdx",
+        "furo-js/getting-started/including-furo-js.mdx"
+      ],
+      "version": "Korean"
     },
     {
       "group": "SDK Documentation",
