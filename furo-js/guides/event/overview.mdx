@@ -1,0 +1,29 @@
+---
+title: 'Event'
+---
+
+초기화가 완료되거나, 로그인, 로그아웃 등 이벤트가 발생할 경우 호출되는 콜백 함수를 등록할 수 있습니다.
+
+```js
+furo.on(eventType, callback);
+```
+
+제공중인 이벤트 타입은 다음과 같습니다.
+
+- `init`: 초기화가 완료되었을 때 발생합니다.
+- `login`: 로그인이 완료되었을 때 발생합니다.
+- `logout`: 로그아웃이 완료되었을 때 발생합니다.
+
+## API
+
+### `furo.on(eventType, callback)`
+
+이벤트를 수신할 수 있도록 콜백 함수를 등록합니다.
+
+<ParamField path="eventType" type="string" required>
+  수신할 이벤트 타입 입니다. `init`, `login`, `logout`
+</ParamField>
+
+<ParamField path="callback" type="function" required>
+  이벤트가 발생했을 때 호출되는 콜백 함수입니다.
+</ParamField>

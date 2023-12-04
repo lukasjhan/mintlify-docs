@@ -1,0 +1,13 @@
+---
+title: 'Get User'
+description: '사용자 객체를 얻는방법'
+---
+
+`furo` 객체 하위에 있는 `user` 속성에 접근하면 현재 로그인한 유저의 객체를 얻을 수 있습니다.
+만약 로그인 상태가 아니라면 `furo.user`는 `null`을 반환할 것입니다.
+
+### Usage
+
+```js
+const currentUser = furo.user;
+```

@@ -1,0 +1,72 @@
+---
+title: 'Setup'
+description: 'Furo.js 설치 및 초기화'
+---
+
+## Install
+
+여러분의 html `<head>` 요소에 Furo.js 스크립트를 추가하세요.
+이렇게 하면 furo의 기능을 여러분의 코드에서 어디서든 접근가능합니다.
+
+```html index.html
+<script src="https://cdn.furo.one/sdk/furo.min.js"></script>
+```
+
+<Note>
+**Furo.js의 비동기 또는 지연 로딩**
+
+스크립트 태그의 `async` 또는 `defer` 속성을 사용하여 Furo.js를 로드할 수도 있습니다. 그러나 주의할 점은 비동기 로딩을 사용하면 반드시 스크립트 실행이 완료된 후에만 API 호출이 이루어져야 합니다.
+
+</Note>
+
+---
+
+## Initialize
+
+Furo.js를 본격적으로 사용하기 전 필수 과정인 초기화 과정입니다.<br/>
+여러분이 사용하는 웹 프레임워크의 진입점에서 `furo.init` 메서드를 한 번 호출하는 것으로 마칠 수 있습니다.
+
+Furo에서 프로젝트를 인식하기 위해서는, 여러분 프로젝트에 맞는 `clientId`와 `publicApiKey`를 사용하여 초기화 함수를 호출해야 합니다.
+
+<CodeGroup>
+```html html
+<script>
+furo.init({
+  clientId: 'YOUR_CLIENT_ID',
+  publicApiKey: 'YOUR_PUBLIC_API_KEY',
+});
+</script>
+```
+
+```jsx React
+// in your App.js or index.js
+furo.init({
+  clientId: 'YOUR_CLIENT_ID',
+  publicApiKey: 'YOUR_PUBLIC_API_KEY',
+});
+```
+
+</CodeGroup>
+
+## API
+
+### furo.init
+
+SDK를 초기화합니다. <Tooltip tip="InitOptions">초기화 옵션</Tooltip>을 파라메터로 받습니다.
+
+```js
+init(options: InitOptions) => Promise<boolean>
+```
+
+### InitOptions
+
+<ParamField path="clientId" type="string" required>
+  프로젝트를 식별하는 고유한 ID입니다. Furo 콘솔의 Developer 탭에서 확인하실수
+  있습니다.<br/>
+  Furo JS 설치시 `<script>` 태그 안에 `data-client-id` 를 지정하는 것으로 대체할 수 있습니다.
+</ParamField>
+
+<ParamField path="apiKey" type="string" required>
+  서버와 통신하는데 사용되는 공개 API 키입니다.
+  Furo 콘솔의 Developer 탭에서 확인하실수 있습니다.<br/>Furo JS 설치시 `<script>` 태그 안에 `data-public-api-key` 를 지정하는 것으로 대체할 수 있습니다.
+</ParamField>

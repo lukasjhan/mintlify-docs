@@ -1,0 +1,66 @@
+---
+title: 'Getting Started'
+description: '1분 만에 구현하는 로그인'
+---
+
+Getting Started에 오신것을 환영합니다. 여기서는 Furo.js를 웹사이트에 통합하고 로그인을 구현하는 방법을 알아보겠습니다.
+
+- [HTML Sample](https://plnkr.co/edit/ikmUYxF7OPV6i4eK?preview)
+
+---
+
+### Step 1: HTML 파일에 스크립트 추가하기
+
+아래 스크립트 파일을 html의 `<head>` 태그 안에 추가해주세요.<br/>
+
+```html
+<script src="https://cdn.furo.one/sdk/furo.min.js"></script>
+```
+
+### Step 2: Furo.js 초기화하기
+
+아래 스크립트 블럭을 `<body>` 태그 안에 추가해주세요.
+초기화가 잘 되었다면 콘솔에 `Furo JS initialized` 라는 메시지가 출력됩니다.
+초기화에 대한 자세한 내용은 [여기](/furo-js/guides/setup#initialize)를 참고하세요.
+
+```html
+<script>
+  furo.init({
+    clientId: '2aa3732c55d411d50427024a278bf8b1',
+    publicApiKey: 'apikey-public-live-0beb6187-2c02-4646-b458-245c692f11cd',
+  });
+</script>
+```
+
+### Step 3: 로그인 버튼 추가하기
+
+`<button>` 태그를 복사하여 html 에디터에 붙여넣고 클릭해 보세요.
+
+```html
+<button onclick="furo.open('login')">Login</button>
+```
+
+### Step 4: 로그인 해보기
+
+버튼을 클릭하면 로그인 UI가 나타나는 것을 확인하셨나요?<br/>
+여러분의 계정으로 로그인을 해보세요.<br/>
+
+<Accordion title="로그인을 해봐도 괜찮을까요?">
+  화면에 보이는 로그인UI는 Furo가 샘플로 생성한 프로젝트로 Furo가 안전하게
+  관리하고 있습니다. <br />
+  다른 누군가가 여러분의 정보를 볼 수 없으니, 안심하시고 로그인을 해보셔도 괜찮습니다.
+</Accordion>
+
+### Step 5: 로그인 사용자 정보 가져오기
+
+이제 어디서든 `furo.user`를 통해 로그인된 사용자의 정보를 가져올 수 있습니다.
+개발자 도구의 콘솔에서 `furo.user`를 출력해보세요.
+
+```js
+console.log(furo.user);
+```
+
+### Conguratulations!
+
+축하합니다! 1분 만에 구현하는 Furo.js 로그인 튜토리얼을 마치셨습니다.<br/>
+이후 더 자세한 내용은 [Guides 섹션](/furo-js/guides)을 참고하세요.

@@ -1,0 +1,64 @@
+---
+title: 'Login Component'
+description: '로그인, 회원가입, 비밀번호 찾기 등이 구현되어있는 UI'
+---
+
+## Overview
+
+로그인 컴포넌트는 사용자 로그인 및 회원가입을 위한 UI를 렌더링 합니다. 컴포넌트는 콘솔 대시보드에서
+설정에 따라 UI 옵션이 결정됩니다. UI 옵션은 [콘솔](https://console.furo.one) > Branding 탭에서 기본적으로 설정할 수 있으며,
+컴포넌트를 `open` 할 때 [LoginComponentConfigs](#logincomponentconfigs)을 함께 전달하여 커스텀 할 수 있습니다.
+
+<Frame>
+  <img
+    noZoom
+    src="/images/login-component.jpg"
+    alt="Login Component"
+    width="200"
+  />
+</Frame>
+
+## API
+
+### Type
+
+로그인 컴포넌트의 타입은 `login` 입니다.
+
+### LoginComponentConfigs
+
+`furo.open('login')` 사용시 전달할 수 있는 속성입니다.
+
+<ParamField path="appearence" type="object">
+  로그인 UI 대한 옵션입니다. `appearence` 속성은 콘솔의 기본설정을 오버라이드 합니다.
+
+  <Expandable title="properties" defaultOpen>
+    <ResponseField name="theme" type="string">
+      색상테마를 설정합니다. `light` 또는 `dark` 를 입력할 수 있습니다. 비어있으면
+  콘솔에 설정된 테마가 적용됩니다.
+    </ResponseField>
+
+    <ResponseField name="type" type="string">
+        로그인 컴포넌트 UI타입을 설정합니다. `simple` 또는 `side` 를 입력할 수있습니다. 비어있으면 콘솔에 설정된 UI타입이 적용됩니다.
+
+  </ResponseField>
+
+  </Expandable>
+</ParamField>
+
+<ParamField path="oauthPopup" type="boolean" default={true}>
+  OAuth 로그인을 위한 팝업창을 사용할지 여부를 설정합니다. `true` 또는 `false`
+  를 입력할 수 있습니다. default는 `true` 입니다. `false` 로 설정하면 OAuth
+  로그인시 redirect 방식으로 동작합니다.
+</ParamField>
+
+**Example**
+
+```js
+furo.open('login', {
+  appearence: {
+    theme: 'dark',
+    type: 'simple',
+  },
+  oauthPopup: false,
+});
+```

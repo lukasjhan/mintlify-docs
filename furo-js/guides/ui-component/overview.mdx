@@ -1,0 +1,57 @@
+---
+title: 'UI Component'
+description: '별도의 구현이 필요없는 UI'
+---
+
+Furo JS는 바로 사용할 수 있는 UI 컴포넌트를 제공합니다.<br/>
+별도의 구현없이 로그인과 사용자에 관련된 다양한 기능을 즉시 사용할 수 있습니다.
+
+제공중인 UI 컴포넌트는 다음과 같습니다.
+
+- [Login Component](./login-component)
+
+## UI Component 컨트롤하기
+
+SDK 초기화를 완료하셨다면 간단한 함수 호출을 통해 UI를 컨트롤 하실 수 있습니다.
+
+### open
+
+`furo` 객체의 `open` 함수를 통해 컴포넌트 UI를 열 수 있습니다.
+
+```js
+furo.open('login');
+```
+
+### close
+
+`furo` 객체의 `close` 함수를 통해 컴포넌트 UI를 닫을 수 있습니다.
+
+```js
+furo.close('login');
+```
+
+## API
+
+### furo.open(type, options)
+
+```ts
+function open(type: string, options?: UIComponentConfigs): void;
+```
+
+<ParamField required path="type" type="string">
+  UI 컴포넌트의 타입을 지정합니다 : "login"
+</ParamField>
+<ParamField path="options" type="UIComponentConfigs | undefined">
+  `UIComponentConfigs` 는 컴포넌트 타입에 따라 속성이 달라질 수 있습니다.
+  <br />각 UI 컴포넌트에서 속성을 확인하시기 바랍니다.
+</ParamField>
+
+### furo.close(type)
+
+```ts
+function close(type: string): void;
+```
+
+<ParamField required path="type" type="string">
+  UI 컴포넌트의 타입을 지정합니다 : "login"
+</ParamField>

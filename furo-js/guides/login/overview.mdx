@@ -1,0 +1,38 @@
+---
+title: 'Login / Logout'
+description: '로그인 / 로그아웃 방법 및 관련된 이벤트'
+---
+
+Furo는 다양한 로그인 유형을 제공하고 있습니다.
+UI Component를 이용하시면 모든 로그인에 대해 미리 구현된 UI를 사용할 수 있습니다.
+
+로그인 또는 로그아웃을 할때 트리거되는 이벤트를 수신하는 방법에 대해서도 설명합니다.
+
+## Login
+
+로그인은 현재 UI를 통해 제공됩니다.
+자세한 내용은 [Login Component](/furo-js/guides/ui-component/login-component)를 참고하세요.
+
+## Logout
+
+사용자를 로그아웃 시킵니다.
+
+```js
+furo.logout();
+```
+
+## Event 수신
+
+로그인 / 로그아웃의 경우 각각 `login` / `logout` 이벤트가 트리거됩니다.
+이벤트에 대한 자세한 내용은 [Event](/furo-js/guides/event)를 참고하세요.
+
+```js
+furo.on('login', function (user) {
+  // 로그인 유저
+  const currentUser = user;
+});
+
+furo.on('logout', function () {
+  // 로그아웃
+});
+```
