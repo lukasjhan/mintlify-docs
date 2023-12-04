@@ -11,7 +11,7 @@
     "light": "#AE87FF",
     "dark": "#0D001D",
     "background": {
-      "dark": "#090014"
+      "dark": "#141414"
     },
     "anchors": {
       "from": "#FF7F57",
@@ -23,10 +23,6 @@
     "url": "https://console.furo.one"
   },
   "tabs": [
-    {
-      "name": "SDKs",
-      "url": "sdks"
-    },
     {
       "name": "Furo JS",
       "url": "furo-js"
@@ -147,57 +143,44 @@
       "version": "English"
     },
     {
-      "group": "Getting Started",
+      "group": "Basic Usage",
       "pages": [
-        "furo-js/getting-started/introduction.mdx",
-        "furo-js/getting-started/including-furo-js.mdx"
+        "furo-js/basic-usage/introduction",
+        "furo-js/basic-usage/getting-started"
       ],
       "version": "Korean"
     },
     {
-      "group": "SDK Documentation",
-      "pages": ["sdks/overview"],
-      "version": "Korean"
-    },
-    {
-      "group": "Javascript/Typescript",
+      "group": "Guides",
       "pages": [
+        "furo-js/guides/setup",
         {
-          "group": "React",
-          "icon": "react",
+          "group": "UI Component",
           "pages": [
-            "sdks/guides/react",
-            {
-              "group": "SDK",
-              "pages": ["sdks/react/furoProvider", "sdks/react/useFuro"]
-            }
+            "furo-js/guides/ui-component/overview",
+            "furo-js/guides/ui-component/login-component"
           ]
         },
+        "furo-js/guides/login/overview",
         {
-          "group": "Javascript",
-          "icon": "js",
+          "group": "User",
           "pages": [
-            "sdks/guides/javascript",
-            {
-              "group": "SDK",
-              "pages": ["sdks/javascript/window-furo"]
-            }
+            "furo-js/guides/user/get-user",
+            "furo-js/guides/user/get-user-access-token"
           ]
         },
-        "sdks/guides/next",
-        "sdks/guides/react-native",
-        "sdks/guides/vue"
+        "furo-js/guides/event/overview"
       ],
       "version": "Korean"
     },
     {
-      "group": "Dart/Flutter",
-      "pages": ["sdks/guides/flutter"],
+      "group": "Other Platforms",
+      "pages": ["furo-js/sdks/react-native", "furo-js/sdks/flutter"],
       "version": "Korean"
     },
     {
       "group": "SDK Documentation",
-      "pages": ["sdks/en/overview"],
+      "pages": ["furo-js/en/overview"],
       "version": "English"
     },
     {
@@ -207,10 +190,13 @@
           "group": "React",
           "icon": "react",
           "pages": [
-            "sdks/en/guides/react",
+            "furo-js/sdks/en/guides/react",
             {
               "group": "SDK",
-              "pages": ["sdks/en/react/furoProvider", "sdks/en/react/useFuro"]
+              "pages": [
+                "furo-js/sdks/en/react/furoProvider",
+                "furo-js/sdks/en/react/useFuro"
+              ]
             }
           ]
         },
@@ -218,22 +204,22 @@
           "group": "Javascript",
           "icon": "js",
           "pages": [
-            "sdks/en/guides/javascript",
+            "furo-js/en/guides/javascript",
             {
               "group": "SDK",
-              "pages": ["sdks/en/javascript/window-furo"]
+              "pages": ["furo-js/en/javascript/window-furo"]
             }
           ]
         },
-        "sdks/en/guides/next",
-        "sdks/en/guides/react-native",
-        "sdks/en/guides/vue"
+        "furo-js/en/guides/next",
+        "furo-js/en/guides/react-native",
+        "furo-js/en/guides/vue"
       ],
       "version": "English"
     },
     {
       "group": "Dart/Flutter",
-      "pages": ["sdks/en/guides/flutter"],
+      "pages": ["furo-js/en/guides/flutter"],
       "version": "English"
     },
     {
