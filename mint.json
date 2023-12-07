@@ -96,6 +96,11 @@
       "version": "Korean"
     },
     {
+      "group": "Etc",
+      "pages": ["extra"],
+      "version": "Korean"
+    },
+    {
       "group": "Get Started",
       "pages": ["en/quickstart"],
       "version": "English"
@@ -140,6 +145,11 @@
           "pages": ["en/essentials/slack"]
         }
       ],
+      "version": "English"
+    },
+    {
+      "group": "Etc",
+      "pages": ["extra"],
       "version": "English"
     },
     {
