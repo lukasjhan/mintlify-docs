@@ -11,8 +11,13 @@ furo.on(eventType, callback);
 제공중인 이벤트 타입은 다음과 같습니다.
 
 - `init`: 초기화가 완료되었을 때 발생합니다.
-- `login`: 로그인이 완료되었을 때 발생합니다.
-- `logout`: 로그아웃이 완료되었을 때 발생합니다.
+- `login`: 로그인이 완료되었을 때 1회 발생합니다.
+- `logout`: 로그아웃이 완료되었을 때 1회 발생합니다.
+- `user:set`: token 발급후 `furo.user`에 user가 할당되었을 때 마다 발생합니다.
+
+  `login` 이벤트와 다른점은 `login` 이벤트는 처음 로그인이 완료되었을 때만 발생하지만,
+  `user:set` 기존 토큰으로 user를 가져올 때 발생합니다.
+  주로 새로고침을 할 때 발생합니다.
 
 ## API
 
@@ -21,9 +26,32 @@ furo.on(eventType, callback);
 이벤트를 수신할 수 있도록 콜백 함수를 등록합니다.
 
 <ParamField path="eventType" type="string" required>
-  수신할 이벤트 타입 입니다. `init`, `login`, `logout`
+  수신할 이벤트 타입 입니다. `init`, `login`, `logout`, `user:set`
 </ParamField>
 
 <ParamField path="callback" type="function" required>
   이벤트가 발생했을 때 호출되는 콜백 함수입니다.
+
+  <CodeGroup title="callback types">
+    ```js init
+    furo.on('init', () => {
+    });
+    ```
+
+    ```js login
+    furo.on('login', (user) => {
+    });
+    ```
+
+    ```js logout
+    furo.on('logout', () => {
+    });
+    ```
+
+    ```js user:set
+    furo.on('user:set', (user) => {
+    });
+    ```
+
+  </CodeGroup>
 </ParamField>
