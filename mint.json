@@ -96,6 +96,11 @@
       "version": "Korean"
     },
     {
+      "group": "Extra",
+      "pages": ["extra"],
+      "version": "Korean"
+    },
+    {
       "group": "Get Started",
       "pages": ["en/quickstart"],
       "version": "English"
@@ -143,7 +148,17 @@
       "version": "English"
     },
     {
-      "group": "Basic Usage",
+      "group": "Extra",
+      "pages": ["extra"],
+      "version": "English"
+    },
+    {
+      "group": "SDK Documentation",
+      "pages": ["sdks/overview"],
+      "version": "Korean"
+    },
+    {
+      "group": "Javascript/Typescript",
       "pages": [
         "furo-js/basic-usage/introduction",
         "furo-js/basic-usage/getting-started"
