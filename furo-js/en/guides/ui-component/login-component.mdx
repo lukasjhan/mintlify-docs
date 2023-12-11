@@ -33,11 +33,6 @@ These are the properties you can pass when using `furo.open('login')`.
     <ResponseField name="theme" type="string">
       Sets the color theme. You can enter `light` or `dark`. If left empty, the theme set in the console will be applied.
     </ResponseField>
-
-    <ResponseField name="type" type="string">
-      Sets the UI type of the login component. You can enter `simple` or `side`. If left empty, the UI type set in the console will be applied.
-    </ResponseField>
-
   </Expandable>
 </ParamField>
 
@@ -53,7 +48,6 @@ These are the properties you can pass when using `furo.open('login')`.
 furo.open('login', {
   appearence: {
     theme: 'dark',
-    type: 'simple',
   },
   oauthPopup: false,
 });
