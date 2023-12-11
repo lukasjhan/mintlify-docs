@@ -1,0 +1,60 @@
+---
+title: 'Login Component'
+description: 'UI Implementing Login, Sign-Up, and Password Recovery'
+---
+
+## Overview
+
+The login component renders a UI for user login and sign-up. The UI options for the component are determined by settings in the console dashboard. You can set the default UI options in the [console](https://console.furo.one) under the Branding tab, and customize them by passing [LoginComponentConfigs](#logincomponentconfigs) when you `open` the component.
+
+<Frame>
+  <img
+    noZoom
+    src="/images/login-component.jpg"
+    alt="Login Component"
+    width="200"
+  />
+</Frame>
+
+## API
+
+### Type
+
+The type of the login component is `login`.
+
+### LoginComponentConfigs
+
+These are the properties you can pass when using `furo.open('login')`.
+
+<ParamField path="appearence" type="object">
+  Options for the login UI. The `appearence` attribute overrides the default settings in the console.
+
+  <Expandable title="properties" defaultOpen>
+    <ResponseField name="theme" type="string">
+      Sets the color theme. You can enter `light` or `dark`. If left empty, the theme set in the console will be applied.
+    </ResponseField>
+
+    <ResponseField name="type" type="string">
+      Sets the UI type of the login component. You can enter `simple` or `side`. If left empty, the UI type set in the console will be applied.
+    </ResponseField>
+
+  </Expandable>
+</ParamField>
+
+<ParamField path="oauthPopup" type="boolean" default={true}>
+  Determines whether to use a popup window for OAuth login. You can enter `true`
+  or `false`. The default is `true`. If set to `false`, OAuth login will operate
+  using redirect method.
+</ParamField>
+
+**Example**
+
+```js
+furo.open('login', {
+  appearence: {
+    theme: 'dark',
+    type: 'simple',
+  },
+  oauthPopup: false,
+});
+```

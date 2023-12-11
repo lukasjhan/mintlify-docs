@@ -1,0 +1,70 @@
+---
+title: 'Getting Started'
+description: 'Implementing Login in Just One Minute'
+---
+
+Welcome to Getting Started. Here, we will learn how to integrate Furo.js into your website and implement a login feature.
+
+- [HTML Sample](https://stackblitz.com/edit/furojs-html?file=index.html)
+- [React Sample](https://stackblitz.com/edit/furojs-react?file=src%2Findex.js)
+- [Vue Sample](https://stackblitz.com/edit/furojs-vue?file=src%2Fmain.js)
+- [Svelte Sample](https://stackblitz.com/edit/furojs-svelte?file=src%2FApp.svelte)
+
+---
+
+### Step 1: Adding the Script to Your HTML File
+
+Please add the following script file inside the `<head>` tag of your HTML.<br/>
+
+```html
+<script src="https://cdn.furo.one/sdk/furo.min.js"></script>
+```
+
+### Step 2: Initializing Furo.js
+
+Add the script block below inside the `<body>` tag.
+If the initialization is successful, you should see a message `Furo JS initialized` in the console.
+For more details on initialization, check [here](/furo-js/guides/setup#initialize).
+
+```html
+<script>
+  furo.init({
+    clientId: '2aa3732c55d411d50427024a278bf8b1',
+    publicApiKey: 'apikey-public-live-0beb6187-2c02-4646-b458-245c692f11cd',
+  });
+</script>
+```
+
+### Step 3: Adding a Login Button
+
+Copy the `<button>` tag and paste it into your HTML editor, then give it a try.
+
+```html
+<button onclick="furo.open('login')">Login</button>
+```
+
+### Step 4: Trying Out the Login
+
+Did you see the login UI appear when you clicked the button?<br/>
+Try logging in with your account.<br/>
+
+<Accordion title="Is it safe to try logging in?">
+  The login UI you see is a sample project created by Furo, which is securely
+  managed by Furo. <br />
+  Rest assured, no one else can see your information, so feel free to try logging
+  in.
+</Accordion>
+
+### Step 5: Retrieving Logged-In User Information
+
+Now, you can retrieve the logged-in user's information from anywhere using `furo.user`.
+Try printing `furo.user` in the console of the developer tools.
+
+```js
+console.log(furo.user);
+```
+
+### Congratulations!
+
+Congratulations! You have completed the Furo.js login tutorial in just one minute.<br/>
+For more detailed information, refer to the [Guides section](/furo-js/guides).

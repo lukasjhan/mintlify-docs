@@ -1,0 +1,70 @@
+---
+title: 'Setup'
+description: 'Installing and Initializing Furo.js'
+---
+
+## Install
+
+Add the Furo.js script to your html `<head>` element.
+This allows you to access furo's features from anywhere in your code.
+
+```html index.html
+<script src="https://cdn.furo.one/sdk/furo.min.js"></script>
+```
+
+<Note>
+**Asynchronous or Deferred Loading of Furo.js**
+
+You can also load Furo.js using the `async` or `defer` attributes of the script tag. However, be aware that if you use asynchronous loading, API calls should only be made after the script has fully executed.
+
+</Note>
+
+---
+
+## Initialize
+
+Initialization is a mandatory step before you start using Furo.js in earnest.<br/>
+You can complete it by calling the `furo.init` method once at the entry point of your web framework.
+
+To be recognized by Furo, you must call the initialization function using the `clientId` and `publicApiKey` that match your project.
+
+<CodeGroup>
+```html html
+<script>
+furo.init({
+  clientId: 'YOUR_CLIENT_ID',
+  publicApiKey: 'YOUR_PUBLIC_API_KEY',
+});
+</script>
+```
+
+```jsx React
+// in your App.js or index.js
+furo.init({
+  clientId: 'YOUR_CLIENT_ID',
+  publicApiKey: 'YOUR_PUBLIC_API_KEY',
+});
+```
+
+</CodeGroup>
+
+## API
+
+### furo.init
+
+Initializes the SDK. It accepts <Tooltip tip="InitOptions">initialization options</Tooltip> as parameters.
+
+```js
+init(options: InitOptions) => Promise<boolean>
+```
+
+### InitOptions
+
+<ParamField path="clientId" type="string" required>
+  This is a unique ID that identifies your project. You can find it in the Developer tab of the Furo console.<br/>
+  You can alternatively set `data-client-id` inside the `<script>` tag when installing Furo JS.
+</ParamField>
+
+<ParamField path="apiKey" type="string" required>
+  This is the public API key used for communication with the server. You can find it in the Developer tab of the Furo console.<br/>You can alternatively set `data-public-api-key` inside the `<script>` tag when installing Furo JS.
+</ParamField>

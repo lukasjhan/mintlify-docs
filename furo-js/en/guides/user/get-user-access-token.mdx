@@ -1,0 +1,23 @@
+---
+title: 'Get User Access Token'
+description: "How to Obtain a User's Access Token"
+---
+
+To authenticate the user and communicate with the server, you need the user's access token.
+
+You can obtain the user's access token by calling the `getAccessTokenSilently` method on the `furo` object.
+
+```js
+const jwtAccessToken = await furo.getAccessTokenSilently();
+```
+
+If the user is logged in, a valid token will always be returned.
+If the user is not logged in, `null` is returned.
+
+For methods to verify the user's token and more detailed information about the token, refer to [here](/essentials/token-verify).
+
+<Accordion title="Why a Valid Token is Always Returned">
+  This method internally uses a `refresh_token` to renew the token. Therefore,
+  if the stored token has expired, it automatically renews the token's validity
+  period before returning it.
+</Accordion>

@@ -153,12 +153,7 @@
       "version": "English"
     },
     {
-      "group": "SDK Documentation",
-      "pages": ["sdks/overview"],
-      "version": "Korean"
-    },
-    {
-      "group": "Javascript/Typescript",
+      "group": "Furo JS",
       "pages": [
         "furo-js/basic-usage/introduction",
         "furo-js/basic-usage/getting-started"
@@ -194,47 +189,39 @@
       "version": "Korean"
     },
     {
-      "group": "SDK Documentation",
-      "pages": ["furo-js/en/overview"],
-      "version": "English"
-    },
-    {
-      "group": "Javascript/Typescript",
+      "group": "Furo JS",
       "pages": [
-        {
-          "group": "React",
-          "icon": "react",
-          "pages": [
-            "furo-js/sdks/en/guides/react",
-            {
-              "group": "SDK",
-              "pages": [
-                "furo-js/sdks/en/react/furoProvider",
-                "furo-js/sdks/en/react/useFuro"
-              ]
-            }
-          ]
-        },
-        {
-          "group": "Javascript",
-          "icon": "js",
-          "pages": [
-            "furo-js/en/guides/javascript",
-            {
-              "group": "SDK",
-              "pages": ["furo-js/en/javascript/window-furo"]
-            }
-          ]
-        },
-        "furo-js/en/guides/next",
-        "furo-js/en/guides/react-native",
-        "furo-js/en/guides/vue"
+        "furo-js/en/basic-usage/introduction",
+        "furo-js/en/basic-usage/getting-started"
       ],
       "version": "English"
     },
     {
-      "group": "Dart/Flutter",
-      "pages": ["furo-js/en/guides/flutter"],
+      "group": "Guides",
+      "pages": [
+        "furo-js/en/guides/setup",
+        {
+          "group": "UI Component",
+          "pages": [
+            "furo-js/en/guides/ui-component/overview",
+            "furo-js/en/guides/ui-component/login-component"
+          ]
+        },
+        "furo-js/en/guides/login/overview",
+        {
+          "group": "User",
+          "pages": [
+            "furo-js/en/guides/user/get-user",
+            "furo-js/en/guides/user/get-user-access-token"
+          ]
+        },
+        "furo-js/en/guides/event/overview"
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Other Platforms",
+      "pages": ["furo-js/en/sdks/react-native", "furo-js/en/sdks/flutter"],
       "version": "English"
     },
     {

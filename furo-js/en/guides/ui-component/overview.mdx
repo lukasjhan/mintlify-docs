@@ -1,0 +1,59 @@
+---
+title: 'UI Component'
+description: 'UI Components Ready for Immediate Use'
+---
+
+Furo JS provides UI components that are ready to use right out of the box.<br/>
+You can immediately utilize various features related to login and user management without any additional implementation.
+
+The available UI components include:
+
+- [Login Component](./login-component)
+
+## Controlling UI Components
+
+Once you have completed the SDK initialization, you can control the UI with simple function calls.
+
+### open
+
+You can open a component UI using the `open` function of the `furo` object.
+
+```js
+furo.open('login');
+```
+
+### close
+
+You can close a component UI using the `close` function of the `furo` object.
+
+```js
+furo.close('login');
+```
+
+## API
+
+### furo.open(type, options)
+
+```ts
+function open(type: string, options?: UIComponentConfigs): void;
+```
+
+<ParamField required path="type" type="string">
+  Specifies the type of UI component: "login"
+</ParamField>
+
+<ParamField path="options" type="UIComponentConfigs | undefined">
+  `UIComponentConfigs` may vary depending on the component type.
+  <br />
+  Please refer to each UI component for its properties.
+</ParamField>
+
+### furo.close(type)
+
+```ts
+function close(type: string): void;
+```
+
+<ParamField required path="type" type="string">
+  Specifies the type of UI component: "login"
+</ParamField>

@@ -1,0 +1,55 @@
+---
+title: 'Event'
+---
+
+You can register callback functions that are called when events such as initialization completion, login, or logout occur.
+
+```js
+furo.on(eventType, callback);
+```
+
+The available event types are as follows:
+
+- `init`: Triggered when initialization is complete.
+- `login`: Triggered once when login is complete.
+- `logout`: Triggered once when logout is complete.
+- `user:set`: Triggered every time a user is assigned to `furo.user` after token issuance.
+
+  The difference from the `login` event is that `login` occurs only when the initial login is complete, while `user:set` occurs when a user is retrieved with an existing token. This typically happens during a page refresh.
+
+## API
+
+### `furo.on(eventType, callback)`
+
+Registers a callback function to receive events.
+
+<ParamField path="eventType" type="string" required>
+  The type of event you want to receive. `init`, `login`, `logout`, `user:set`
+</ParamField>
+
+<ParamField path="callback" type="function" required>
+  The callback function that is called when the event occurs.
+
+  <CodeGroup title="callback types">
+    ```js
+    furo.on('init', () => {
+    });
+    ```
+
+    ```js
+    furo.on('login', (user) => {
+    });
+    ```
+
+    ```js
+    furo.on('logout', () => {
+    });
+    ```
+
+    ```js
+    furo.on('user:set', (user) => {
+    });
+    ```
+
+  </CodeGroup>
+</ParamField>

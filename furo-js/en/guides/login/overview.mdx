@@ -1,0 +1,38 @@
+---
+title: 'Login / Logout'
+description: 'Methods for Login/Logout and Related Events'
+---
+
+Furo provides various types of login methods.
+By using the UI Component, you can utilize pre-implemented UIs for all types of login.
+
+This section also explains how to receive events triggered during login or logout.
+
+## Login
+
+Login is currently provided through the UI.
+For more details, refer to [Login Component](/furo-js/guides/ui-component/login-component).
+
+## Logout
+
+Logs out the user.
+
+```js
+furo.logout();
+```
+
+## Receiving Events
+
+For login/logout, `login` / `logout` events are triggered respectively.
+For more details on the events, refer to [Event](/furo-js/guides/event).
+
+```js
+furo.on('login', function (user) {
+  // Logged-in user
+  const currentUser = user;
+});
+
+furo.on('logout', function () {
+  // Logged out
+});
+```
