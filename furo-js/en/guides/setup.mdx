@@ -53,9 +53,10 @@ furo.init({
 ### furo.init
 
 Initializes the SDK. It accepts <Tooltip tip="InitOptions">initialization options</Tooltip> as parameters.
+For events triggered immediately after initialization, see [Event](/furo-js/guides/event/overview).
 
 ```js
-init(options: InitOptions) => Promise<boolean>
+init(options: InitOptions) => void
 ```
 
 ### InitOptions
@@ -65,6 +66,6 @@ init(options: InitOptions) => Promise<boolean>
   You can alternatively set `data-client-id` inside the `<script>` tag when installing Furo JS.
 </ParamField>
 
-<ParamField path="apiKey" type="string" required>
+<ParamField path="publicApiKey" type="string" required>
   This is the public API key used for communication with the server. You can find it in the Developer tab of the Furo console.<br/>You can alternatively set `data-public-api-key` inside the `<script>` tag when installing Furo JS.
 </ParamField>

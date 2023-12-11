@@ -53,9 +53,10 @@ furo.init({
 ### furo.init
 
 SDK를 초기화합니다. <Tooltip tip="InitOptions">초기화 옵션</Tooltip>을 파라메터로 받습니다.
+초기화 직후 트리거되는 이벤트 대해서는 [Event](/furo-js/guides/event/overview)를 참고하세요.
 
 ```js
-init(options: InitOptions) => Promise<boolean>
+init(options: InitOptions) => void
 ```
 
 ### InitOptions
@@ -66,7 +67,7 @@ init(options: InitOptions) => Promise<boolean>
   Furo JS 설치시 `<script>` 태그 안에 `data-client-id` 를 지정하는 것으로 대체할 수 있습니다.
 </ParamField>
 
-<ParamField path="apiKey" type="string" required>
+<ParamField path="publicApiKey" type="string" required>
   서버와 통신하는데 사용되는 공개 API 키입니다.
   Furo 콘솔의 Developer 탭에서 확인하실수 있습니다.<br/>Furo JS 설치시 `<script>` 태그 안에 `data-public-api-key` 를 지정하는 것으로 대체할 수 있습니다.
 </ParamField>
