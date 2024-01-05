@@ -56,10 +56,10 @@ final code = Uri.parse(result).queryParameters['code'];
 print(code);
 ```
 
-| 파라미터 이름     | 설명                                                                                                     | 타입   |
-| ----------------- | -------------------------------------------------------------------------------------------------------- | ------ |
-| url               | 로그인 페이지의 url                                                                                      | string |
-| callbackUrlScheme | 인증 후 callback을 받는 uri의 scheme(deep link) web: http/https, mobile: {app.scheme} [ ex) youtube:// ] | string |
+| 파라미터 이름     | 설명                                                                                                   | 타입   |
+| ----------------- | ------------------------------------------------------------------------------------------------------ | ------ |
+| url               | 로그인 페이지의 url                                                                                    | string |
+| callbackUrlScheme | 인증 후 callback을 받는 uri의 scheme(deep link) web: http/https, mobile: app.scheme [ ex) youtube:// ] | string |
 
 <Warning>
   "callbackUrlScheme"은 유효한 스키마 문자열이어야만 작동합니다. 유효한 RFC 3986
@@ -272,7 +272,7 @@ CLIENT_ID="{{YOUR_CLIENT_ID}}"
       {
         'flutter-web-auth': window.location.href,
       },
-      window.location.origin
+      window.location.origin,
     );
     window.close();
   </script>
@@ -286,7 +286,7 @@ CLIENT_ID="{{YOUR_CLIENT_ID}}"
 콘솔 입력창의 Default Callback URI에 기본값 `https://sample.furo.one/{{YOUR_CLIENT_ID}}` 를 `{app.scheme}://auth` 로 변경합니다.
 
 <Note>
-  android/app/src/main/AndroidManifest.xml 파일에 {app.scheme}를 추가해야합니다.
+  android/app/src/main/AndroidManifest.xml 파일에 app.scheme를 추가해야합니다.
 </Note>
 
 ```xml
@@ -298,7 +298,7 @@ CLIENT_ID="{{YOUR_CLIENT_ID}}"
 
 ### IOS
 
-<Note>ios/Runner/info.plist 파일에 {app.scheme}를 추가해야합니다.</Note>
+<Note>ios/Runner/info.plist 파일에 app.scheme를 추가해야합니다.</Note>
 
 ```xml
 <key>CFBundleURLTypes</key>
