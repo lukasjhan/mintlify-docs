@@ -1,0 +1,36 @@
+---
+title: 'FuroProvider'
+description: 'React Provider for Furo'
+icon: 'react'
+---
+
+The FuroProvider is a top-level component necessary when implementing the Furo login feature. It wraps all the paths where you want to use the Furo SDK.
+
+## Usage
+
+```jsx
+// src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { FuroProvider } from 'furo-react';
+import App from './App';
+
+ReactDOM.render(
+  <FuroProvider
+    domain="https://auth.furo.one"
+    clientId="YOUR_CLIENT_ID_GOES_HERE"
+    redirectUri={window.location.origin}
+  >
+    <App />
+  </FuroProvider>,
+  document.getElementById('root'),
+);
+```
+
+## Props
+
+| Name        | Type   | Required | Description                                              |
+| ----------- | ------ | -------- | -------------------------------------------------------- |
+| domain      | string | true     | Furo authentication server domain                        |
+| clientId    | string | true     | Client ID registered with the Furo authentication server |
+| redirectUri | string | true     | Redirect URI to be used after login                      |

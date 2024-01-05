@@ -185,7 +185,19 @@
     },
     {
       "group": "Other Platforms",
-      "pages": ["furo-js/sdks/react-native", "furo-js/sdks/flutter"],
+      "pages": [
+        "furo-js/sdks/react-native",
+        "furo-js/sdks/flutter",
+        {
+          "group": "React",
+          "icon": "react",
+          "pages": [
+            "furo-js/sdks/react/guides",
+            "furo-js/sdks/react/furoProvider",
+            "furo-js/sdks/react/useFuro"
+          ]
+        }
+      ],
       "version": "Korean"
     },
     {
@@ -221,7 +233,19 @@
     },
     {
       "group": "Other Platforms",
-      "pages": ["furo-js/en/sdks/react-native", "furo-js/en/sdks/flutter"],
+      "pages": [
+        "furo-js/en/sdks/react-native",
+        "furo-js/en/sdks/flutter",
+        {
+          "group": "React",
+          "icon": "react",
+          "pages": [
+            "furo-js/en/sdks/react/guides",
+            "furo-js/en/sdks/react/furoProvider",
+            "furo-js/en/sdks/react/useFuro"
+          ]
+        }
+      ],
       "version": "English"
     },
     {

@@ -1,0 +1,72 @@
+---
+title: 'useFuro'
+description: 'React Hook for Furo'
+---
+
+useFuro is a core React Hook that contains the Furo SDK for implementing Furo login functionality. It allows you to access various properties and functions, including user login information.
+
+## Usage
+
+```jsx
+// src/App.js
+import React from 'react';
+import { useFuro } from 'furo-react';
+
+function App() {
+  const { isLoading, isAuthenticated, user, loginWithRedirect, logout } =
+    useFuro();
+
+  const onLogout = () => {
+    logout();
+    loginWithRedirect();
+  };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isAuthenticated) {
+    return (
+      <div>
+        Hello {user.name} <button onClick={onLogout}>Log out</button>
+      </div>
+    );
+  } else {
+    return <button onClick={loginWithRedirect}>{`Log in`}</button>;
+  }
+}
+
+export default App;
+```
+
+## Properties
+
+### loginWithRedirect
+
+A function to navigate to the domain specified in FuroProvider.
+
+`const loginWithRedirect: () => void;`
+
+### logOut
+
+A function for logging out.
+
+`const logout: () => void;`
+
+### isLoading
+
+A state variable that is true when the login is in progress and false otherwise.
+
+`const isLoading: boolean;`
+
+### isAuthenticated
+
+A state variable that is true if the user is logged in and false otherwise.
+
+`const isAuthenticated: boolean;`
+
+### user
+
+A user object containing login information.
+
+`const isAuthenticated: User;`
