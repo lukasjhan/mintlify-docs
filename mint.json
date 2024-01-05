@@ -11,7 +11,7 @@
     "light": "#AE87FF",
     "dark": "#0D001D",
     "background": {
-      "dark": "#141414"
+      "dark": "#090014"
     },
     "anchors": {
       "from": "#FF7F57",
@@ -26,6 +26,10 @@
     {
       "name": "Furo JS",
       "url": "furo-js"
+    },
+    {
+      "name": "SDK Reference",
+      "url": "sdks"
     },
     {
       "name": "API Reference",
@@ -186,23 +190,6 @@
       "version": "Korean"
     },
     {
-      "group": "Other Platforms",
-      "pages": [
-        "furo-js/sdks/react-native",
-        "furo-js/sdks/flutter",
-        {
-          "group": "React",
-          "icon": "react",
-          "pages": [
-            "furo-js/sdks/react/guides",
-            "furo-js/sdks/react/furoProvider",
-            "furo-js/sdks/react/useFuro"
-          ]
-        }
-      ],
-      "version": "Korean"
-    },
-    {
       "group": "Furo JS",
       "pages": [
         "furo-js/en/basic-usage/introduction",
@@ -234,20 +221,63 @@
       "version": "English"
     },
     {
-      "group": "Other Platforms",
+      "group": "SDK Documentation",
+      "pages": ["sdks/overview"],
+      "version": "Korean"
+    },
+    {
+      "group": "Javascript/Typescript",
       "pages": [
-        "furo-js/en/sdks/react-native",
-        "furo-js/en/sdks/flutter",
         {
           "group": "React",
           "icon": "react",
           "pages": [
-            "furo-js/en/sdks/react/guides",
-            "furo-js/en/sdks/react/furoProvider",
-            "furo-js/en/sdks/react/useFuro"
+            "sdks/guides/react",
+            {
+              "group": "SDK",
+              "pages": ["sdks/react/furoProvider", "sdks/react/useFuro"]
+            }
           ]
-        }
+        },
+        "sdks/guides/next",
+        "sdks/guides/react-native",
+        "sdks/guides/vue"
       ],
+      "version": "Korean"
+    },
+    {
+      "group": "Dart/Flutter",
+      "pages": ["sdks/guides/flutter"],
+      "version": "Korean"
+    },
+    {
+      "group": "SDK Documentation",
+      "pages": ["sdks/en/overview"],
+      "version": "English"
+    },
+    {
+      "group": "Javascript/Typescript",
+      "pages": [
+        {
+          "group": "React",
+          "icon": "react",
+          "pages": [
+            "sdks/en/guides/react",
+            {
+              "group": "SDK",
+              "pages": ["sdks/en/react/furoProvider", "sdks/en/react/useFuro"]
+            }
+          ]
+        },
+        "sdks/en/guides/next",
+        "sdks/en/guides/react-native",
+        "sdks/en/guides/vue"
+      ],
+      "version": "English"
+    },
+    {
+      "group": "Dart/Flutter",
+      "pages": ["sdks/en/guides/flutter"],
       "version": "English"
     },
     {
