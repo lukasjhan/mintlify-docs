@@ -96,7 +96,8 @@
           "group": "API 훅 연동하기",
           "icon": "gear",
           "pages": ["essentials/slack"]
-        }
+        },
+        "essentials/state"
       ],
       "version": "Korean"
     },
@@ -149,7 +150,8 @@
           "group": "Integrate API Hooks",
           "icon": "gear",
           "pages": ["en/essentials/slack"]
-        }
+        },
+        "en/essentials/state"
       ],
       "version": "English"
     },

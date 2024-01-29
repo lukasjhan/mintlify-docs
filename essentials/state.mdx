@@ -1,0 +1,28 @@
+---
+title: '로그인 state 사용'
+description: 'How to use state query in login URL'
+icon: 'user'
+---
+
+<Note>
+  이 문서에서 [redirect_uri]는 예시로써 사용되었습니다. 실제로는 redirect_uri는
+  console에 설정된 callback_url을 사용합니다.
+</Note>
+
+# State query
+
+로그인 후에 [redirect_uri]로 이동할 때, state query를 사용하여 추가적인 정보를 전달할 수 있습니다. 단순히 로그인 URL을 호출하실 때 state query를 추가하시면 됩니다. 추가된 쿼리 값은 redirect_uri로 이동될 때 그대로 전달됩니다.
+
+- 로그인 URL에서의 state query 예시
+
+```
+https://auth.furo.one/login/{pid}?state={state}
+```
+
+로그인이 완료된 후 [redirect_uri]로 이동될 때 URL은 다음과 같습니다. redirect 후 URL에 있는 state값을 처리하시면 됩니다.
+
+- [redirect_uri]로 이동될 때 URL 예시
+
+```
+https://[redirect_uri]?state={state}&code={code}
+```
